@@ -1,0 +1,26 @@
+<h3>
+  <%= @product.name %>
+</h3>
+
+<ul>
+  <p><%= @product.description %></p>
+  <p><%= @product.quantity %></p>
+  <p><%= number_to_currency(@product.price) %></p>
+  <p><%= @product.moq %></p>
+  <p><%= @product.when_ready %></p>
+  <p><%= @product.brand %></p>
+  <p><%= @product.sku %></p>
+  <p><%= @product.mfr %></p>
+  <p><%= number_to_currency(@product.msrp) %></p>
+  <p><%= @product.manufacturer %></p>
+  <p><%= @product.category1 %></p>
+  <p><%= @product.category2 %></p>
+  <p><%= @product.upc %></p>
+  <p><%= @product.restrictions %></p>
+  <p><%= @product.warehouse_zip %></p>
+  <p><%= @product.warranty %></p>
+  <p><%= @product.link1 %></p>
+  <p><%= @product.link1_title %></p>
+  <p><%= @product.link2 %></p>
+  <p><%= @product.link2_title %></p>
+</ul>

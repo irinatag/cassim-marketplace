@@ -1,0 +1,25 @@
+<%= simple_form_for @product do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :quantity %>
+  <%= f.input :price %>
+  <%= f.input :moq %>
+  <%= f.input :when_ready %>
+  <%= f.input :brand %>
+  <%= f.input :sku %>
+  <%= f.input :mfr %>
+  <%= f.input :msrp %>
+  <%= f.input :manufacturer %>
+  <%= f.input :category1 %>
+  <%= f.input :category2 %>
+  <%= f.input :upc %>
+  <%= f.input :restrictions %>
+  <%= f.input :warehouse_zip %>
+  <%= f.input :warranty %>
+  <%= f.input :link1 %>
+  <%= f.input :link1_title %>
+  <%= f.input :link2 %>
+  <%= f.input :link2_title %>
+
+  <%= f.button :submit, "Submit Product" %>
+<% end %>

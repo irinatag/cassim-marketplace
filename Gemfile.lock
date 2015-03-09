@@ -163,7 +163,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  bootstrap-sass (~> 3.3.1)
+  bootstrap-sass (~> 3.3.3)
   capybara
   coffee-rails (~> 4.0.0)
   country_select
