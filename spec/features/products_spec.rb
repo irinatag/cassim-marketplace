@@ -164,4 +164,34 @@ feature 'CRUDing products' do
     expect(page).to have_content("Google Link")
     expect(page).to have_content("Amazon Link")
   end
+
+  scenario 'delete a product' do
+    Product.create!(
+      name: 'Product 2',
+      description: 'This is another product',
+      quantity: 2000,
+      price: 50.00,
+      moq: 50,
+      when_ready: 'now',
+      brand: 'ACME',
+      sku: 'qwerty',
+      mfr: 'asdf',
+      msrp: 74.99,
+      manufacturer: 'ACME Co.',
+      category1: 'household goods',
+      category2: 'kitchen appliances',
+      upc: 123456789,
+      restrictions: 'none',
+      warehouse_zip: '60013',
+      warranty: '2 year limited manufacturer warranty',
+      link1: "www.google.com",
+      link1_title: "Google",
+    )
+
+    visit products_path
+    click_on "Product 2"
+    click_on "Delete"
+
+    expect(page).to have_no_content('Product 2')
+  end
 end

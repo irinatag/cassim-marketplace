@@ -1,6 +1,7 @@
 <h3>
   <%= @product.name %>
   <%= link_to 'Edit', edit_product_path(@product) %>
+  <%= link_to 'Delete', product_path, method: :delete %>
 </h3>
 
 <ul>
