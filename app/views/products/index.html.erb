@@ -1,3 +1,6 @@
-This is the products index.
-
+<h1>Products</h1>
 <%= link_to 'Add new product', new_product_path %>
+
+<% @products.each do |product| %>
+  <%= link_to product.name, product_path(product) %>
+<% end %>

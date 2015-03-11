@@ -46,6 +46,51 @@ feature 'CRUDing products' do
     expect(page).to have_content("2 year, manufacturer warranty")
     expect(page).to have_content("Google Link")
     expect(page).to have_content("Amazon Link")
+  end
 
+  scenario 'user views a product' do
+    Product.create!(
+    name: 'Product 2',
+    description: 'This is another product',
+    quantity: 2000,
+    price: 50.00,
+    moq: 50,
+    when_ready: 'now',
+    brand: 'ACME',
+    sku: 'qwerty',
+    mfr: 'asdf',
+    msrp: 74.99,
+    manufacturer: 'ACME Co.',
+    category1: 'household goods',
+    category2: 'kitchen appliances',
+    upc: 123456789,
+    restrictions: 'none',
+    warehouse_zip: '60013',
+    warranty: '2 year limited manufacturer warranty',
+    link1: "www.google.com",
+    link1_title: "Google",
+    )
+
+    visit products_path
+    click_on "Product 2"
+    expect(page).to have_content('Product 2')
+    expect(page).to have_content('This is another product')
+    expect(page).to have_content('2000')
+    expect(page).to have_content('$50.00')
+    expect(page).to have_content('50')
+    expect(page).to have_content('now')
+    expect(page).to have_content('ACME')
+    expect(page).to have_content('qwerty')
+    expect(page).to have_content('asdf')
+    expect(page).to have_content('$74.99')
+    expect(page).to have_content('ACME Co.')
+    expect(page).to have_content('household goods')
+    expect(page).to have_content('kitchen appliances')
+    expect(page).to have_content('123456789')
+    expect(page).to have_content('none')
+    expect(page).to have_content('60013')
+    expect(page).to have_content('2 year limited manufacturer warranty')
+    expect(page).to have_content('www.google.com')
+    expect(page).to have_content('Google')
   end
 end
