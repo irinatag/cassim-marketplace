@@ -1,6 +1,30 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  test "products are saved" do
+    product = Product.new(:name => 'A Product', :description => 'a thing', :quantity => 400, :price => 55.5, :moq => 500)
+    total = Product.all.count
+    assert total = 1
+  end
+
+  test "products can be deleted" do
+    product = Product.new(:name => 'A Product', :description => 'a thing', :quantity => 400, :price => 55.5, :moq => 500)
+    total = Product.all.count
+    assert total = 1
+
+    product.delete
+    new_total = Product.all.count
+    assert new_total = 0
+  end
+
+  test "products can be edited" do
+    product = Product.new(:name => 'A Product', :description => 'a thing', :quantity => 400, :price => 55.5, :moq => 500)
+    assert product.name = "A Product"
+
+    product.name = "A New Product"
+    assert product.name = "A New Product"
+  end
+
   test "should not save a blank Product" do
     product = Product.new
     assert_not product.save, "saved the product without a name, description, quantity, cost, or MOQ"
@@ -30,4 +54,5 @@ class ProductTest < ActiveSupport::TestCase
     product = Product.new(:name => 'A Product', :description => 'a thing', :quantity => 400, :price => 55.5)
     assert_not product.save, "saved without an MOQ."
   end
+
 end
