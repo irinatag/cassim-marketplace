@@ -54,4 +54,33 @@ feature 'CRUDing vendors' do
     expect(page).to have_content("US")
     expect(page).to have_content("333-333-3333")
   end
+
+  scenario 'view a vendor' do
+    Vendor.create!(
+      name: 'Vendor 2',
+      description: 'Description',
+      email_biz: 'test@test.com',
+      email_finance: 'test2@test.com',
+      address: '44 Tehama St.',
+      city: 'SF',
+      state: 'CA',
+      zipcode: '00000',
+      country: 'United States of America',
+      phone: '333-333-3333'
+    )
+
+    visit vendors_path
+    click_on "Vendor 2"
+    expect(page).to have_content("Vendor 2")
+    expect(page).to have_content("Description")
+    expect(page).to have_content("test@test.com")
+    expect(page).to have_content("test2@test.com")
+    expect(page).to have_content("44 Tehama St.")
+    expect(page).to have_content("SF")
+    expect(page).to have_content("CA")
+    expect(page).to have_content("00000")
+    expect(page).to have_content("United States of America")
+    expect(page).to have_content("333-333-3333")
+  end
+
 end
