@@ -12,6 +12,8 @@
 
   <% if params[:action] == 'new' %>
     <%= f.button :submit, "Submit Vendor" %>
+  <% else %>
+    <%= f.button :submit, "Update Vendor" %>
   <% end %>
 
 <% end %>
