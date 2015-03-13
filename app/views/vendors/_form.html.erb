@@ -1,0 +1,19 @@
+<%= simple_form_for @vendor do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :email_biz %>
+  <%= f.input :email_finance %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :zipcode %>
+  <%= f.input :country %>
+  <%= f.input :phone %>
+
+  <% if params[:action] == 'new' %>
+    <%= f.button :submit, "Submit Vendor" %>
+  <% else %>
+    <%= f.button :submit, "Update Vendor" %>
+  <% end %>
+
+<% end %>
