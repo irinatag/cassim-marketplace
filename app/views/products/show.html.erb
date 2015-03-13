@@ -4,6 +4,7 @@
   <%= link_to 'Delete', product_path, method: :delete %>
 </h3>
 
+<%= image_tag @product.image.url %>
 <ul>
   <p><%= @product.description %></p>
   <p><%= @product.quantity %></p>

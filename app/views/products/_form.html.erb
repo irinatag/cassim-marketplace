@@ -1,6 +1,8 @@
 <%= simple_form_for @product do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
+  <%= f.error_notification %>
+  <%= f.input :name, placeholder: 'Enter Product Name' %>
+  <%= f.input :description, placeholder: 'Product Description' %>
+  <%= f.file_field :image %>
   <%= f.input :quantity %>
   <%= f.input :price %>
   <%= f.input :moq %>

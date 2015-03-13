@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'simple_form'
 gem 'country_select'
+gem 'paperclip', '~> 4.2'
 
 group :development do
   gem "better_errors"
