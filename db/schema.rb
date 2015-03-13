@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313165211) do
+ActiveRecord::Schema.define(version: 20150313174307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150313165211) do
     t.string   "sku"
     t.string   "mfr"
     t.decimal  "msrp"
-    t.string   "manufacturer"
+    t.string   "vendor"
     t.string   "category1"
     t.string   "category2"
     t.integer  "upc"
@@ -40,10 +40,14 @@ ActiveRecord::Schema.define(version: 20150313165211) do
     t.string   "link2_title"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+=======
+    t.integer  "vendor_id"
+>>>>>>> irina
   end
 
   create_table "vendors", force: true do |t|
