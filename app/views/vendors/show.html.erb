@@ -1,0 +1,18 @@
+<h2>
+  Vendor Name: <%= @vendor.name %>
+</h2>
+
+<ul>
+  <li>Description: <%= @vendor.description %></li>
+  <li>Business Email: <%= @vendor.email_biz %></li>
+  <li>Finance Email: <%= @vendor.email_finance %></li>
+  <li>Street Address: <%= @vendor.address %></li>
+  <li>City: <%= @vendor.city %></li>
+  <li>State: <%= @vendor.state %></li>
+  <li>Zipcode: <%= @vendor.zipcode %></li>
+  <li>Country: <%= @vendor.country %></li>
+  <li>Phone: <%= @vendor.phone %></li>
+</ul>
+
+<%= link_to 'Edit', edit_vendor_path(@vendor) %>
+<%= link_to 'Delete', @vendor, method: :delete, data: { confirm: 'Are you sure?' } %>
