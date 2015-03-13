@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'CRUDing products' do
+
   scenario 'create a product' do
     visit products_path
     click_on "Add new product"
@@ -14,7 +15,7 @@ feature 'CRUDing products' do
     fill_in "Sku", with: "fkrr2qBZ"
     fill_in "Mfr", with: "6kqX6FbX"
     fill_in "Msrp", with: "69.99"
-    fill_in "Manufacturer", with: "ACME Co."
+    fill_in "Vendor", with: "ACME Co."
     fill_in "Category1", with: "electronics"
     fill_in "Category2", with: "kitchen appliances"
     fill_in "Upc", with: "702037443"
@@ -60,7 +61,7 @@ feature 'CRUDing products' do
       sku: 'qwerty',
       mfr: 'asdf',
       msrp: 74.99,
-      manufacturer: 'ACME Co.',
+      Vendor: 'ACME Co.',
       category1: 'household goods',
       category2: 'kitchen appliances',
       upc: 123456789,
@@ -106,7 +107,7 @@ feature 'CRUDing products' do
       sku: 'qwerty',
       mfr: 'asdf',
       msrp: 74.99,
-      manufacturer: 'ACME Co.',
+      vendor: 'ACME Co.',
       category1: 'household goods',
       category2: 'kitchen appliances',
       upc: 123456789,
@@ -130,7 +131,7 @@ feature 'CRUDing products' do
     fill_in "Sku", with: "fkrr2qBZ"
     fill_in "Mfr", with: "6kqX6FbX"
     fill_in "Msrp", with: "69.99"
-    fill_in "Manufacturer", with: "ACME Co."
+    fill_in "Vendor", with: "ACME Co."
     fill_in "Category1", with: "electronics"
     fill_in "Category2", with: "kitchen appliances"
     fill_in "Upc", with: "702037443"
@@ -177,7 +178,7 @@ feature 'CRUDing products' do
       sku: 'qwerty',
       mfr: 'asdf',
       msrp: 74.99,
-      manufacturer: 'ACME Co.',
+      vendor: 'ACME Co.',
       category1: 'household goods',
       category2: 'kitchen appliances',
       upc: 123456789,
