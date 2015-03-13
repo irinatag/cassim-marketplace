@@ -15,3 +15,4 @@
 </ul>
 
 <%= link_to 'Edit', edit_vendor_path(@vendor) %>
+<%= link_to 'Delete', @vendor, method: :delete, data: { confirm: 'Are you sure?' } %>
