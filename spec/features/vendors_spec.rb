@@ -98,5 +98,26 @@ feature 'CRUDing vendors' do
     expect(page).to have_content("333-333-3333")
   end
 
+  scenario 'delete a vendor' do
+    Vendor.create!(
+      name: 'Vendor 1',
+      description: 'Description 1',
+      email_biz: 'test@test.com',
+      email_finance: 'test2@test.com',
+      address: '4 Tehama St.',
+      city: 'SF',
+      state: 'CA',
+      zipcode: '00000',
+      country: 'United States of America',
+      phone: '333-333-3333'
+    )
+
+    visit vendors_path
+
+    click_on "Vendor 1"
+    click_on "Delete"
+
+    expect(page).to have_content("")
+  end
 
 end
