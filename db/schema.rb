@@ -46,4 +46,19 @@ ActiveRecord::Schema.define(version: 20150313165211) do
     t.datetime "image_updated_at"
   end
 
+  create_table "vendors", force: true do |t|
+    t.string   "name"
+    t.string   "email_biz"
+    t.string   "email_finance"
+    t.string   "description"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "country"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
