@@ -1,8 +1,12 @@
-<%= simple_form_for @product do |f| %>
+<%= simple_form_for @product, html: { class: 'form-horizontal'},
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    file: :horizontal_file_input
+  } do |f| %>
   <%= f.error_notification %>
   <%= f.input :name, placeholder: 'Enter Product Name' %>
   <%= f.input :description, placeholder: 'Product Description' %>
-  <%= f.file_field :image %>
+  <%= f.input :image, as: :file %>
   <%= f.input :quantity %>
   <%= f.input :price %>
   <%= f.input :moq %>
