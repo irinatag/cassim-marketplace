@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'CRUDing products' do
+  before(:each) do
+    @vendor = Vendor.new(:name => 'ACME Co.', :email_biz => 'fake@fake.com', :email_finance => 'anon@anon.com', :address => '123 4th St', :city => 'Springfield', :state => 'East Dakota', :zipcode => '98765', :phone => '123-456-7890')
+    @vendor.save
+  end
 
   scenario 'create a product' do
     visit products_path
@@ -15,7 +19,7 @@ feature 'CRUDing products' do
     fill_in "Sku", with: "fkrr2qBZ"
     fill_in "Mfr", with: "6kqX6FbX"
     fill_in "Msrp", with: "69.99"
-    fill_in "Vendor", with: "ACME Co."
+    select("ACME", :from => "Vendor")
     fill_in "Category1", with: "electronics"
     fill_in "Category2", with: "kitchen appliances"
     fill_in "Upc", with: "702037443"
@@ -61,7 +65,7 @@ feature 'CRUDing products' do
       sku: 'qwerty',
       mfr: 'asdf',
       msrp: 74.99,
-      Vendor: 'ACME Co.',
+      vendor: @vendor,
       category1: 'household goods',
       category2: 'kitchen appliances',
       upc: 123456789,
@@ -91,11 +95,13 @@ feature 'CRUDing products' do
     expect(page).to have_content('none')
     expect(page).to have_content('60013')
     expect(page).to have_content('2 year limited manufacturer warranty')
-    expect(page).to have_content('www.google.com')
     expect(page).to have_content('Google')
   end
 
   scenario 'edit a product' do
+    new_vendor = Vendor.new(:name => 'ABC123', :email_biz => 'fake@fake.com', :email_finance => 'anon@anon.com', :address => '123 4th St', :city => 'Springfield', :state => 'East Dakota', :zipcode => '98765', :phone => '123-456-7890')
+    new_vendor.save
+
     Product.create!(
       name: 'Product 2',
       description: 'This is another product',
@@ -107,7 +113,7 @@ feature 'CRUDing products' do
       sku: 'qwerty',
       mfr: 'asdf',
       msrp: 74.99,
-      vendor: 'ACME Co.',
+      vendor: @vendor,
       category1: 'household goods',
       category2: 'kitchen appliances',
       upc: 123456789,
@@ -131,7 +137,7 @@ feature 'CRUDing products' do
     fill_in "Sku", with: "fkrr2qBZ"
     fill_in "Mfr", with: "6kqX6FbX"
     fill_in "Msrp", with: "69.99"
-    fill_in "Vendor", with: "ACME Co."
+    select("ABC123", :from => "Vendor")
     fill_in "Category1", with: "electronics"
     fill_in "Category2", with: "kitchen appliances"
     fill_in "Upc", with: "702037443"
@@ -155,7 +161,7 @@ feature 'CRUDing products' do
     expect(page).to have_content("fkrr2qBZ")
     expect(page).to have_content("6kqX6FbX")
     expect(page).to have_content("$69.99")
-    expect(page).to have_content("ACME Co.")
+    expect(page).to have_content("ABC123")
     expect(page).to have_content("electronics")
     expect(page).to have_content("kitchen appliances")
     expect(page).to have_content("702037443")
@@ -178,7 +184,7 @@ feature 'CRUDing products' do
       sku: 'qwerty',
       mfr: 'asdf',
       msrp: 74.99,
-      vendor: 'ACME Co.',
+      vendor: @vendor,
       category1: 'household goods',
       category2: 'kitchen appliances',
       upc: 123456789,
