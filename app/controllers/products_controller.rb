@@ -45,6 +45,13 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def mail
+    @product = Product.find(params[:id])
+
+    ModelMailer.po_notification(@product).deliver
+    redirect_to @product
+  end
+
   private
   def product_params
     params.require(:product).permit(:name, :description, :quantity, :price, :moq, :when_ready, :brand, :sku, :mfr, :msrp, :vendor_id, :category1, :category2, :upc, :restructions, :warehouse_zip, :warranty, :link1, :link1_title, :link2, :link2_title, :restrictions, :image)
