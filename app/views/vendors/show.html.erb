@@ -1,18 +1,22 @@
-<h2>
-  Vendor Name: <%= @vendor.name %>
-</h2>
+<div class="container">
+  <h2 class='page-header'>
+    Vendor Name: <%= @vendor.name %>
+  </h2>
 
-<ul>
-  <li>Description: <%= @vendor.description %></li>
-  <li>Business Email: <%= @vendor.email_biz %></li>
-  <li>Finance Email: <%= @vendor.email_finance %></li>
-  <li>Street Address: <%= @vendor.address %></li>
-  <li>City: <%= @vendor.city %></li>
-  <li>State: <%= @vendor.state %></li>
-  <li>Zipcode: <%= @vendor.zipcode %></li>
-  <li>Country: <%= @vendor.country %></li>
-  <li>Phone: <%= @vendor.phone %></li>
-</ul>
+  <div class="row voffset">
+    <dl class="dl-horizontal">
+      <dt>Description:</dt> <dd><%= @vendor.description %></dd>
+      <dt>Business Email:</dt> <dd><%= @vendor.email_biz %></dd>
+      <dt>Finance Email:</dt> <dd><%= @vendor.email_finance %></dd>
+      <dt>Street Address:</dt> <dd><%= @vendor.address %></dd>
+      <dt>City:</dt> <dd><%= @vendor.city %></dd>
+      <dt>State:</dt> <dd><%= @vendor.state %></dd>
+      <dt>Zipcode:</dt> <dd><%= @vendor.zipcode %></dd>
+      <dt>Country:</dt> <dd><%= @vendor.country %></dd>
+      <dt>Phone:</dt> <dd><%= @vendor.phone %></dd>
+    </dl>
+  </div>
 
-<%= link_to 'Edit', edit_vendor_path(@vendor) %>
-<%= link_to 'Delete', @vendor, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_vendor_path(@vendor), class: "btn btn-success" %>
+  <%= link_to 'Delete', @vendor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+</div>
