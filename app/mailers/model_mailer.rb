@@ -9,6 +9,6 @@ class ModelMailer < ActionMailer::Base
   def po_notification(product)
     @greeting = "Hi"
     @product = product
-    mail to: "hrfarley@gmail.com", subject: "Success!"
+    mail to: "to@example.org", subject: "Success!"
   end
 end
