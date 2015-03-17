@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :user do
+    
+  end
+
   factory :vendor do
     name "name"
     email_biz "email biz"

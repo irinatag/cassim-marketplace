@@ -1,0 +1,51 @@
+<div class="container">
+  <!-- SIMPLE FORM - NOT WORKING -->
+  <!-- <div class="well col-md-6 col-md-offset-2">
+    <h1>Sign In to Distribu.td!</h1>
+    <%= form_tag signin_path do |f| %>
+    <% if @sign_in_error %>
+      <p class="alert alert-danger">
+         <%= @sign_in_error %>
+       </p>
+     <% end %>
+
+      <%= email_field_tag :email, nil, class: "form-control" %>
+      <%= password_field_tag :password, nil, class: "form-control" %>
+      <%= password_field_tag :password_confirmation, nil, class: "form-control" %>
+      <%= submit_tag "Sign In", class: "btn btn-primary" %>
+
+    <% end %>
+  </div> -->
+  <h1>Sign In</h1>
+
+  <%= form_tag signin_path do |f| %>
+
+    <% if @sign_in_error %>
+      <p class="alert alert-danger">
+         <%= @sign_in_error %>
+       </p>
+     <% end %>
+
+    <div>
+      <%= label_tag :email %>
+    </div>
+    <div>
+      <%= email_field_tag :email %>
+    </div>
+
+    <div>
+      <%= label_tag :password %>
+    </div>
+    <div>
+      <%= password_field_tag :password %>
+    </div>
+
+    <div>
+      <%= submit_tag "Sign in" %>
+    </div>
+
+  <% end %>
+
+
+
+</div>

@@ -1,0 +1,52 @@
+<div class="container">
+  <!-- SIMPLE FORMS - NOT WORKING RIGHT NOW! -->
+  <!-- <div class="well col-md-6 col-md-offset-2">
+  <h1>Sign Up for Distribu.td!</h1>
+  <%= simple_form_for @user, url: signup_path, html: {class: "form-group"} do |f| %>
+
+  <%= f.input :email, class: "form-control" %>
+  <%= f.input :password, class: "form-control" %>
+  <%= f.input :password_confirmation, class: "form-control" %>
+  <%= f.button :submit, "Sign Up", class: "btn btn-primary" %>
+
+  <% end %>
+</div> -->
+<h1>Sign Up</h1>
+
+<%= form_for @user, url: signup_path do |f| %>
+
+<% if @user.errors.present? %>
+<ul>
+  <% @user.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<div>
+  <%= f.label :email %>
+</div>
+<div>
+  <%= f.email_field :email %>
+</div>
+
+<div>
+  <%= f.label :password %>
+</div>
+<div>
+  <%= f.password_field :password %>
+</div>
+
+<div>
+  <%= f.label :password_confirmation %>
+</div>
+<div>
+  <%= f.password_field :password_confirmation %>
+</div>
+
+<div>
+  <%= f.submit "Sign up" %>
+</div>
+
+<% end %>
+</div>
