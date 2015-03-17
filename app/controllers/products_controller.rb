@@ -52,6 +52,12 @@ class ProductsController < ApplicationController
     redirect_to @product
   end
 
+  def reserve_product
+    @product = Product.find(params[:id])
+    #@product.reserve(qty)
+    #@product.update(product_params)
+  end
+
   private
   def product_params
     params.require(:product).permit(:name, :description, :quantity, :price, :moq, :when_ready, :brand, :sku, :mfr, :msrp, :vendor_id, :category1, :category2, :upc, :restructions, :warehouse_zip, :warranty, :link1, :link1_title, :link2, :link2_title, :restrictions, :image)

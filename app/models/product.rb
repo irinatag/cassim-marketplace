@@ -17,4 +17,10 @@ class Product < ActiveRecord::Base
     presence: true
 
   belongs_to :vendor
+
+  def reserve(qty)
+    if qty > self.moq && qty < self.quantity
+      self.quantity -= qty
+    end
+  end
 end

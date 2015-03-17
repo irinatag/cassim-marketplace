@@ -6,86 +6,8 @@
   </h3>
 </div>
 
-<div class="center-block col-xs-12 col-sm-6 col-md-8">
-  <%= image_tag @product.image.url, :class => "img-rounded" %>
-</div>
+<%= render 'product' %>
 
-<div class="col-xs-12 col-sm-6 col-md-8">
-  <table class="table table-bordered">
-    <tr>
-      <th>Description</th>
-      <td><%= @product.description %></td>
-    </tr>
-    <tr>
-      <th>Quantity</th>
-      <td><%= @product.quantity %></td>
-    </tr>
-    <tr>
-      <th>Price</th>
-      <td><%= number_to_currency(@product.price) %></td>
-    </tr>
-    <tr>
-      <th>MOQ</th>
-      <td><%= @product.moq %></td>
-    </tr>
-    <tr>
-      <th>When Ready?</th>
-      <td><%= @product.when_ready %></td>
-    </tr>
-    <tr>
-      <th>Brand</th>
-      <td><%= @product.brand %></td>
-    </tr>
-    <tr>
-      <th>SKU</th>
-      <td><%= @product.sku %></td>
-    </tr>
-    <tr>
-      <th>MFR</th>
-      <td><%= @product.mfr %></td>
-    </tr>
-    <tr>
-      <th>MSRP</th>
-      <td><%= number_to_currency(@product.msrp) %></td>
-    </tr>
-    <tr>
-      <th>Vendor</th>
-      <td><%= @product.vendor.name %></td>
-    </tr>
-    <tr>
-      <th>Category 1</th>
-      <td><%= @product.category1 %></td>
-    </tr>
-    <tr>
-      <th>Category 2</th>
-      <td><%= @product.category2 %></td>
-    </tr>
-    <tr>
-      <th>UPC</th>
-      <td><%= @product.upc %></td>
-    </tr>
-    <tr>
-      <th>Restrictions</th>
-      <td><%= @product.restrictions %></td>
-    </tr>
-    <tr>
-      <th>Warehouse Zipcode</th>
-      <td><%= @product.warehouse_zip %></td>
-    </tr>
-    <tr>
-      <th>Warranty</th>
-      <td><%= @product.warranty %></td>
-    </tr>
-    <tr>
-      <th>Link 1</th>
-      <td><%= link_to @product.link1_title, @product.link1 %></td>
-    </tr>
-    <tr>
-      <th>Link 2</th>
-      <td><%= link_to @product.link2_title, @product.link2 %></td>
-    </tr>
-  </table>
 
-  <button id='send'>This button to send email</button>
-
-</div>
+<%= button_to "Reserve", action: 'reserve_product' %>
+<button id='send'>This button to send email</button>
