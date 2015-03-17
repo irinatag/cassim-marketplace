@@ -18,13 +18,12 @@
     <% end %>
   </ul>
 
-  <!-- <div class="container">
-    <% if @sign_in_error %>
-      <p class="alert alert-danger">
-         <%= @sign_in_error %>
-      </p>
-     <% end %>
-  </div> -->
+  <div class="container">
+    <% if notice %>
+       <p id="notice" class="alert alert-success"><%= notice %></p>
+    <% end %>
+  </div>
+
 </div>
   <%= yield %>
 
