@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users
 
   post "/mail" => "products#mail"
-  post "/products/:id/reserve_product"=> 'products#reserve_product'
+  post '/reserve' => 'products#reserve_product'
+  # post "/products/:id/reserve_product"=> 'products#reserve_product'
   get '/signup' => 'registrations#new', as: :signup
   post '/signup' => 'registrations#create'
   get '/signin' => 'authentication#new', as: :signin

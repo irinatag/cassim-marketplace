@@ -53,9 +53,11 @@ class ProductsController < ApplicationController
   end
 
   def reserve_product
+    @data = request.parameters
+    quant = @data[:qty]
     @product = Product.find(params[:id])
-    #@product.reserve(qty)
-    #@product.update(product_params)
+    @product.reserve(quant)
+    redirect_to @product
   end
 
   private
