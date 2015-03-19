@@ -14,14 +14,18 @@
         <div class="row">
           <div class="col-md-6 col-xs-6">
             <h3><%= product.name %></h3>
+            <p>
+              <%= product.description %>
+            </p>
           </div>
           <div class="col-md-6 col-xs-6 price">
-            <h3><label><%= number_to_currency product.price %></label></h3>
+            <h3></h3>
+            <label>Quantity <%= product.quantity %> units</label> <br>
+            <label><%= number_to_currency product.price %></label><br>
+            <label>Minimum Order <%= product.moq %> units</label>
           </div>
         </div>
-        <p>
-          <%= product.description %>
-        </p>
+        
         <div class="row">
           <div class="col-md-6">
             <%= button_to 'See More', product_path(product), :method => :get, class: "btn btn-success btn-product"%>
