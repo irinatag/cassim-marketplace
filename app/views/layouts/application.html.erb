@@ -7,25 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <ul class="nav navbar-nav navbar-right">
-    <% if current_user %>
-      <li><%= link_to "#{current_user.email}", user_path(current_user.id) %></li>
-      <li><%= link_to "Sign Out", signout_path %></li>
-    <% else %>
-      <li><%= link_to "Sign Up", signup_path %></li>
-      <li><%= link_to "Sign In", signin_path %></li>
-    <% end %>
-  </ul>
+  <div class="container-fluid">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to 'Distribu.td', root_path, class: "navbar-brand" %>
+        </div>
 
-  <div class="container">
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+          <li><%= link_to "#{current_user.email}", user_path(current_user.id) %></li>
+          <li><%= link_to "Sign Out", signout_path %></li>
+          <% else %>
+          <li><%= link_to "Sign Up", signup_path %></li>
+          <li><%= link_to "Sign In", signin_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div><!-- /.container-fluid -->
+
+  <div class="container-fluid">
     <% if notice %>
-       <p id="notice" class="alert alert-success"><%= notice %></p>
+    <p id="notice" class="alert alert-success"><%= notice %></p>
     <% end %>
   </div>
 
-</div>
-  <%= yield %>
+  <div class="container-fluid" id="yield">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 20150319162952) do
     t.string   "link2_title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "vendor_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "vendor_id"
   end
 
   create_table "users", force: true do |t|
