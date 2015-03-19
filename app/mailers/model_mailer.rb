@@ -6,10 +6,10 @@ class ModelMailer < ActionMailer::Base
   #
   #   en.model_mailer.po_notification.subject
   #
-  def po_notification(product, quantity)
+  def po_notification(product, quantity, email)
     @greeting = "Hi"
     @product = product
     @quant = quantity
-    mail to: "hrfarley@gmail.com", subject: "Success!"
+    mail to: email, subject: "Success!"
   end
 end
