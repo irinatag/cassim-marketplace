@@ -5,18 +5,29 @@
   </div>
 </h1>
 
-<div class="row center-block">
+<% @products.each do |product| %>
   <div class="col-xs-8 col-md-8 col-md-offset-2 col-xs-offset-2">
-
-    <% @products.each do |product| %>
-
-    <div class="">
-      <h3><%= product.name %></h3>
-      <%= link_to product_path(product) do %>
-        <%= image_tag product.image.url, class: "img-rounded img-responsive" %>
-      <% end %>
+    <div class="thumbnail">
+      <h4 class="text-center"><span class="label label-info"><%= product.brand %></h4>
+      <%= image_tag product.image.url, class: "img-rounded img-responsive" %>
+      <div class="caption">
+        <div class="row">
+          <div class="col-md-6 col-xs-6">
+            <h3><%= product.name %></h3>
+          </div>
+          <div class="col-md-6 col-xs-6 price">
+            <h3><label><%= number_to_currency product.price %></label></h3>
+          </div>
+        </div>
+        <p>
+          <%= product.description %>
+        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <%= button_to 'See More', product_path(product), :method => :get, class: "btn btn-success btn-product"%>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <% end %>
   </div>
-</div>
+<% end %>
