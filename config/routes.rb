@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :products
   resources :vendors
   resources :users
-
+  root 'registrations#new'
   post "/mail" => "products#mail"
   post '/reserve' => 'products#reserve_product'
   # post "/products/:id/reserve_product"=> 'products#reserve_product'
