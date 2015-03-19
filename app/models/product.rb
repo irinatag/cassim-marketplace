@@ -19,8 +19,10 @@ class Product < ActiveRecord::Base
   belongs_to :vendor
 
   def reserve(qty)
-    if qty > self.moq && qty < self.quantity
-      self.quantity -= qty
+    integer_qty = qty.to_i
+    if integer_qty >= self.moq && integer_qty <= self.quantity
+      self.quantity -= integer_qty
+      self.save
     end
   end
 end

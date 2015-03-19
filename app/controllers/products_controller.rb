@@ -47,15 +47,19 @@ class ProductsController < ApplicationController
 
   def mail
     @product = Product.find(params[:id])
-
-    ModelMailer.po_notification(@product).deliver
+    data = request.parameters
+    quant = data[:qty]
+    email = data[:email]
+    ModelMailer.po_notification(@product, quant, email).deliver
     redirect_to @product
   end
 
   def reserve_product
     @product = Product.find(params[:id])
-    #@product.reserve(qty)
-    #@product.update(product_params)
+    data = request.parameters
+    quant = data[:qty]
+    @product.reserve(quant)
+    redirect_to @product
   end
 
   private

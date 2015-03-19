@@ -38,7 +38,6 @@ describe Product do
       :price => 55.5,
       :moq => 500
       )
-      total = Product.all.count
       product.save
       product.delete
       total = Product.all.count

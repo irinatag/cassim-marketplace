@@ -5,13 +5,33 @@
   </div>
 </h1>
 
-<table class="table table-striped table-hover">
-
-  <% @products.each do |product| %>
-  <tr>
-    <td>
-      <%= link_to product.name, product_path(product) %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+<% @products.each do |product| %>
+  <div class="col-xs-8 col-md-8 col-md-offset-2 col-xs-offset-2">
+    <div class="thumbnail">
+      <h4 class="text-center"><span class="label label-info"><%= product.brand %></h4>
+      <%= image_tag product.image.url, class: "img-rounded img-responsive" %>
+      <div class="caption">
+        <div class="row">
+          <div class="col-md-6 col-xs-6">
+            <h3><%= product.name %></h3>
+            <p>
+              <%= product.description %>
+            </p>
+          </div>
+          <div class="col-md-6 col-xs-6 price">
+            <h3></h3>
+            <label>Quantity <%= product.quantity %> units</label> <br>
+            <label><%= number_to_currency product.price %></label><br>
+            <label>Minimum Order <%= product.moq %> units</label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <%= button_to 'See More', product_path(product), :method => :get, class: "btn btn-success btn-product"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
