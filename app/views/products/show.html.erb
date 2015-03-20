@@ -6,7 +6,7 @@
 </div>
 
 <div class="container-fluid">
-  <div class="conent-wrapper">
+  <div class="content-wrapper">
     <div class="item-container">
       <div class="container">
         <div class="col-md-5">
@@ -31,19 +31,38 @@
           </div>
 
           <div class="product-info">
-            <label>Brand:</label> <%= @product.brand %> <br>
-            <label>SKU:</label> <%= @product.sku %> <br>
-            <label>Manufacturer:</label> <%= @product.mfr %> <br>
-            <label>MSRP:</label> <%= @product.msrp %> <br>
-            <label>Categories:</label>
-            <span class="list-inline">
-              <li><%= @product.category1 %></li>
-              <li><%= @product.category2 %></li>
-            </span> <br>
-            <label>UPC:</label> <%= @product.upc %> <br>
-            <label>Restrictions:</label> <%= @product.restrictions %> <br>
-            <label>Warehouse Zipcode:</label> <%= @product.warehouse_zip %> <br>
-            <label>Warranty:</label> <%= @product.warranty %> <br>
+            <% if @product.brand != "" %>
+              <label>Brand:</label> <%= @product.brand %> <br>
+            <% end %>
+            <% if @product.sku != "" %>
+              <label>SKU:</label> <%= @product.sku %> <br>
+            <% end %>
+            <% if @product.mfr != "" %>
+              <label>Manufacturer:</label> <%= @product.mfr %> <br>
+            <% end %>
+            <% if @product.msrp != "" %>
+              <label>MSRP:</label> <%= @product.msrp %> <br>
+            <% end %>
+            <% if @product.category1 != "" && @product.category2 != "" %>
+              <label>Categories:</label>
+              <span class="list-inline">
+                <li><%= @product.category1 %></li>
+                <li><%= @product.category2 %></li>
+              </span> <br>
+            <% end %>
+            <% if @product.upc != nil %>
+              <label>UPC:</label> <%= @product.upc %> <br>
+            <% end %>
+            <% if @product.restrictions != "" %>
+              <label>Restrictions:</label> <%= @product.restrictions %> <br>
+            <% end %>
+            <% if @product.warehouse_zip != "" %>
+              <label>Warehouse Zipcode:</label> <%= @product.warehouse_zip %> <br>
+            <% end %>
+            <% if @product.warranty != "" %>
+              <label>Warranty:</label> <%= @product.warranty %> <br>
+            <% end %>
+
             <%= link_to @product.link1_title, @product.link1 %> <br>
             <%= link_to @product.link2_title, @product.link2 %> <br>
           </div>

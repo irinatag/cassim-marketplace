@@ -11,12 +11,15 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <%= link_to 'Distribu.td', root_path, class: "navbar-brand" %>
+          <%= link_to 'Distribu.td', products_path, class: "navbar-brand" %>
+          <%= link_to 'Products', products_path, class: "nav navbar-text" %>
+          <%= link_to 'Vendors', vendors_path, class: "nav navbar-text" %>
+          <%= link_to 'Users', users_path, class: "nav navbar-text" %>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
-          <li><%= link_to "#{current_user.email}", user_path(current_user.id) %></li>
+          <p class="navbar-text navbar-right">Signed in as <%= link_to current_user.email, user_path(current_user.id), class:"navbar-link" %></p>
           <li><%= link_to "Sign Out", signout_path %></li>
           <% else %>
           <li><%= link_to "Sign Up", signup_path %></li>
