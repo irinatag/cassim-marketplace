@@ -99,7 +99,11 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pdf-core (0.5.1)
     pg (0.18.1)
+    prawn (2.0.0)
+      pdf-core (~> 0.5.0)
+      ttfunk (~> 1.4.0)
     rack (1.5.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -162,6 +166,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    ttfunk (1.4.0)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -189,6 +194,7 @@ DEPENDENCIES
   launchy
   paperclip (~> 4.2)
   pg
+  prawn
   rails (= 4.1.8)
   rspec-rails
   sass-rails (~> 4.0.3)

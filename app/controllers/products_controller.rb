@@ -20,6 +20,14 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ProductPdf.new(@product)
+        send_data pdf.render, filename: 'product.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   def edit

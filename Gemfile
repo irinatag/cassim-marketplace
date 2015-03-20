@@ -55,3 +55,5 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
 end
+
+gem 'prawn'
