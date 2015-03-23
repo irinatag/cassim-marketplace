@@ -69,6 +69,7 @@
 
           <div class="product-stock">Available <%= @product.when_ready %>
             <span id="reserve-button">
+              <%= link_to "Buy", buy_path, {class: "btn btn-success btn-lg"}%>
               <button type="button" class="btn btn-success" id="reserve">
                 Reserve
               </button>
