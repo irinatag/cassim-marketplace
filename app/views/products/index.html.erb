@@ -1,14 +1,30 @@
-<h1>
-  Products
-  <div class="btn-group">
-    <%= link_to 'Add new product', new_product_path, :class => 'btn' %>
-  </div>
-</h1>
+<div class="container">
+<div class="row">
+  <div class="col-sm-9 col-md-9 col-lg-9">
+    <div class="input-group">
+      <h1 class="page-header">Products</h1>
+      <%= link_to 'Add new product', new_product_path, class: "btn btn-primary" %>
+    </div><!-- /input-group -->
+  </div><!-- /.col-md-8 -->
+  <!-- <div class="clearfix visible-xs-block"></div> -->
+  <div class="col-sm-3 col-md-3 col-lg-3">
+    <div class="input-group voffset">
+      <%= form_tag(products_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+      <div class="input-append">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for.." %>
+        <button class="btn btn-primary form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </div>
+      <% end %>
+    </div><!-- /input-group -->
+  </div><!-- /.col-md-8 -->
+</div><!-- /.row -->
+
+<!-- When submit the form, the view rendered will be the index view of our articles resource -->
 
 <% @products.each do |product| %>
-  <div class="col-xs-8 col-md-8 col-md-offset-2 col-xs-offset-2">
-    <div class="thumbnail">
-      <h4 class="text-center"><span class="label label-info"><%= product.brand %></h4>
+<div class="col-xs-8 col-md-8 col-md-offset-2 col-xs-offset-2">
+  <div class="thumbnail">
+    <h4 class="text-center"><span class="label label-info"><%= product.brand %></h4>
       <%= image_tag product.image.url, class: "img-rounded img-responsive" %>
       <div class="caption">
         <div class="row">
@@ -25,7 +41,7 @@
             <label>Minimum Order <%= product.moq %> units</label>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-md-6">
             <%= button_to 'See More', product_path(product), :method => :get, class: "btn btn-success btn-product"%>
@@ -34,4 +50,5 @@
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
+</div>
