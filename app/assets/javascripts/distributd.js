@@ -24,11 +24,11 @@ $(document).ready(function() {
     });
   });
 
-  $('body').on('click', '#reserve', function(event) {
-    $('#reserve-button').append('<p>How many?</p><form method="post">\
-      <input id="desired" type="number" />\
-      <input id="email" type="email" placeholder="email"/>\
-    </form><button id="send">This button to send email</button>'
-    );
-  });
+  // $('body').on('click', '#reserve', function(event) {
+  //   $('#reserve-button').append('<p>How many?</p><form method="post">\
+  //     <input id="desired" type="number" />\
+  //     <input id="email" type="email" placeholder="email"/>\
+  //   </form><button id="send">This button to send email</button>'
+  //   );
+  // });
 });
