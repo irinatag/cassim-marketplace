@@ -25,4 +25,9 @@ class Product < ActiveRecord::Base
       self.save
     end
   end
+
+  def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+    where("name like ?", "%#{query}%") # returns products whose names contain one or more words that form the query
+  end
 end
