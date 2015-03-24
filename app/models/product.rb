@@ -26,8 +26,12 @@ class Product < ActiveRecord::Base
     end
   end
 
-  def self.search(query)
-    # where(:title, query) -> This would return an exact match of the query
-    where("name like ?", "%#{query}%") # returns products whose names contain one or more words that form the query
+  def self.search(params)
+    tire.search(load: true) do
+      query { string params[:search] } if params[:search].present?
+    end
   end
+
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
 end
