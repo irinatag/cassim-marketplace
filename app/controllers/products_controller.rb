@@ -74,6 +74,11 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def import
+    Product.import(params[:file])
+    redirect_to products_path, notice: "Products were imported."
+  end
+
   private
   def product_params
     params.require(:product).permit(:name, :description, :quantity, :price, :moq, :when_ready, :brand, :sku, :mfr, :msrp, :vendor_id, :category1, :category2, :upc, :restructions, :warehouse_zip, :warranty, :link1, :link1_title, :link2, :link2_title, :restrictions, :image)

@@ -1,6 +1,13 @@
 <div class="container">
   <h3>New Product</h3>
 </div>
+<div class="container">
+  <h2>Import Products</h2>
+  <%= form_tag import_products_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+  <% end %>
+</div>
 
 <div class="container">
   <%= render 'form' %>
