@@ -6,8 +6,6 @@ feature 'user registration' do
   end
 
   scenario 'users can sign in with valid email and password' do
-    # @user = User.create!(email: 'user@test.com', password: 'password')
-
     visit '/products'
     click_on 'Sign In'
 
@@ -19,8 +17,6 @@ feature 'user registration' do
   end
 
   scenario 'users cannot sign in with invalid email' do
-    # @user = User.create!(email: 'user@test.com', password: 'password')
-
     visit '/products'
     click_on 'Sign In'
 
@@ -32,8 +28,6 @@ feature 'user registration' do
   end
 
   scenario 'users cannot sign in with invalid password' do
-    # @user = User.create!(email: 'user@test.com', password: 'password')
-
     visit '/products'
     click_on 'Sign In'
 
@@ -45,8 +39,6 @@ feature 'user registration' do
   end
 
   scenario 'users can sign out' do
-    # @user = User.create!(email: 'user@test.com', password: 'password')
-
     visit '/products'
     click_on 'Sign In'
 

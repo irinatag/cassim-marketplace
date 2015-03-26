@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 feature 'user registration' do
-  # before(:each) do
-  #   @user = User.make(email: 'user@test.com', password: 'password')
-  # end
-
   scenario 'users can register with matching password and confirmation' do
     visit root_path
 
