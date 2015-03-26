@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user registration' do
+feature 'user authentication' do
   before(:each) do
     @user = User.create!(email: 'user@test.com', password: 'password')
   end
