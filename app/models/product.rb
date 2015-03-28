@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
   :description,
   :quantity,
   :price,
-  # :vendor,
+  :vendor,
   :moq,
   presence: true
 
@@ -26,18 +26,9 @@ class Product < ActiveRecord::Base
     end
   end
 
-  def self.search(params)
-    tire.search(load: true) do
-      query { string params[:search] } if params[:search].present?
-    end
-  end
-
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      Product.create! row.to_hash
+    CSV.foreach(file.path, row_sep: "\r\n", headers: true) do |row|
+        Product.create! row.to_hash
     end
   end
-
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
 end
