@@ -44,8 +44,6 @@ gem 'bootstrap-sass', '~> 3.3.3'
 gem 'simple_form'
 gem 'country_select'
 gem 'paperclip', '~> 4.2'
-gem 'tire', '~> 0.6.2'
-gem 'roo'
 gem 'iconv'
 
 group :development do
