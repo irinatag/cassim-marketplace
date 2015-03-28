@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'CRUDing products' do
   scenario 'create a product' do
     Vendor.create(
-    :name => 'ACME Co.',
+    :name => 'Vendor Name',
     :email_biz => 'fake@fake.com',
     :email_finance => 'anon@anon.com',
     :address => '123 4th St',
@@ -25,7 +25,7 @@ feature 'CRUDing products' do
     fill_in "Sku", with: "fkrr2qBZ"
     fill_in "Mfr", with: "6kqX6FbX"
     fill_in "Msrp", with: "69.99"
-    select("ACME Co.", :from => "Vendor")
+    select("Vendor Name", :from => "Vendor")
     fill_in "Category1", with: "electronics"
     fill_in "Category2", with: "kitchen appliances"
     fill_in "Upc", with: "702037443"
@@ -38,18 +38,15 @@ feature 'CRUDing products' do
     fill_in "Link2 title", with: "Google Link"
     click_on "Submit Product"
 
-
     expect(page).to have_content("Product 1")
     expect(page).to have_content("Description of product 1")
     expect(page).to have_content("1000")
-    expect(page).to have_content("$22.50")
+    expect(page).to have_content("22.50")
     expect(page).to have_content("50")
-    expect(page).to have_content("now")
     expect(page).to have_content("ACME")
     expect(page).to have_content("fkrr2qBZ")
     expect(page).to have_content("6kqX6FbX")
-    expect(page).to have_content("$69.99")
-    expect(page).to have_content("ACME Co.")
+    expect(page).to have_content("69.99")
     expect(page).to have_content("electronics")
     expect(page).to have_content("kitchen appliances")
     expect(page).to have_content("702037443")
@@ -63,7 +60,7 @@ feature 'CRUDing products' do
   scenario 'view a product' do
     vendor = Vendor.create(
     :name => 'ACME Co.',
-    :email_biz => 'fake@fake.com',
+    :email_biz => 'email_biz@test.com',
     :email_finance => 'anon@anon.com',
     :address => '123 4th St',
     :city => 'Springfield',
@@ -72,7 +69,7 @@ feature 'CRUDing products' do
     :phone => '123-456-7890'
     )
 
-    Product.create!(
+    Product.create(
       name: 'Product 2',
       description: 'This is another product',
       quantity: 2000,
@@ -95,18 +92,16 @@ feature 'CRUDing products' do
     )
 
     visit products_path
-    click_on "Product 2"
+    click_on "See More"
     expect(page).to have_content('Product 2')
     expect(page).to have_content('This is another product')
     expect(page).to have_content('2000')
     expect(page).to have_content('$50.00')
     expect(page).to have_content('50')
-    expect(page).to have_content('now')
     expect(page).to have_content('ACME')
     expect(page).to have_content('qwerty')
     expect(page).to have_content('asdf')
-    expect(page).to have_content('$74.99')
-    expect(page).to have_content('ACME Co.')
+    expect(page).to have_content('74.99')
     expect(page).to have_content('household goods')
     expect(page).to have_content('kitchen appliances')
     expect(page).to have_content('123456789')
@@ -128,7 +123,7 @@ feature 'CRUDing products' do
     :phone => '123-456-7890'
     )
 
-    new_vendor = Vendor.create!(
+    new_vendor = Vendor.create(
     :name => 'ABC123',
     :email_biz => 'fake@fake.com',
     :email_finance => 'anon@anon.com',
@@ -138,7 +133,7 @@ feature 'CRUDing products' do
     :zipcode => '98765',
     :phone => '123-456-7890')
 
-    Product.create!(
+    Product.create(
       name: 'Product 2',
       description: 'This is another product',
       quantity: 2000,
@@ -161,7 +156,7 @@ feature 'CRUDing products' do
     )
 
     visit products_path
-    click_on 'Product 2'
+    click_on "See More"
     click_on 'Edit'
     fill_in "Name", with: "Product 1"
     fill_in "Description", with: "Description of product 1"
@@ -196,8 +191,7 @@ feature 'CRUDing products' do
     expect(page).to have_content("ACME")
     expect(page).to have_content("fkrr2qBZ")
     expect(page).to have_content("6kqX6FbX")
-    expect(page).to have_content("$69.99")
-    expect(page).to have_content("ABC123")
+    expect(page).to have_content("69.99")
     expect(page).to have_content("electronics")
     expect(page).to have_content("kitchen appliances")
     expect(page).to have_content("702037443")
@@ -220,7 +214,7 @@ feature 'CRUDing products' do
       :phone => '123-456-7890'
       )
 
-    Product.create!(
+    Product.create(
       name: 'Product 2',
       description: 'This is another product',
       quantity: 2000,
@@ -243,7 +237,7 @@ feature 'CRUDing products' do
     )
 
     visit products_path
-    click_on "Product 2"
+    click_on "See More"
     click_on "Delete"
 
     expect(page).to have_no_content('Product 2')
@@ -252,7 +246,7 @@ end
 
 feature 'reserving a product' do
   scenario 'user reserves some products' do
-    vendor = Vendor.create!(
+    vendor = Vendor.create(
       :name => 'ACME',
       :email_biz => 'fake@fake.com',
       :email_finance => 'anon@anon.com',
@@ -263,7 +257,7 @@ feature 'reserving a product' do
       :phone => '123-456-7890'
     )
 
-    Product.create!(
+    Product.create(
       name: 'Product 2',
       description: 'This is another product',
       quantity: 2000,
@@ -286,7 +280,7 @@ feature 'reserving a product' do
     )
 
     visit products_path
-    click_on "Product 2"
+    click_on "See More"
     click_on "Reserve"
 
   end
