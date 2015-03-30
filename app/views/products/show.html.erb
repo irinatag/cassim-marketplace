@@ -5,80 +5,101 @@
   </h3>
 </div>
 
+<!-- <div class="container">
+<div class="row">
+<div class="col-sm-6">
+<img src="//placehold.it/600x300" alt="Logo" class="img-responsive"/>
+</div>
+<div class="bottom-align-text col-sm-6">
+<h3>Some Text</h3>
+</div>
+</div>
+</div> -->
+
 <div class="container-fluid">
   <div class="content-wrapper">
     <div class="item-container">
       <div class="container">
-        <div class="col-md-5">
-          <div class=" col-md-3 service-image-left">
-            <center>
-              <%= image_tag @product.image.url, :class => "img-rounded" %>
-            </center>
-          </div>
-        </div>
+        <div class="row">
+          <div class="col-md-6">
 
-        <div class="col-md-7">
-          <div class="product-title"><%= @product.name %></div>
-
-          <div class="product-desc"><%= @product.description %></div>
-
-          <hr>
-
-          <div class="product-price list-inline">
-            <li>Quantity <%= @product.quantity %> units</li>
-            <li><%= number_to_currency(@product.price) %>/unit</li>
-            <li>Minimum Order <%= @product.moq %> units</li>
+            <div class="col-md-9 service-image-left">
+              <%= image_tag @product.image.url, class: "img-rounded img-responsive", alt: "image" %>
+            </div>
+            <div class="bottom-align-text col-md-3">
+              <i class=''></i>
+              Will be sold by: <%= link_to @product.vendor.name, vendor_path(@product.vendor) %>
+              <i class='glyphicon glyphicon-map-marker'></i> <%= @product.vendor.city %> , <%= @product.vendor.state %>
+            </div>
           </div>
 
-          <div class="product-info">
-            <% if @product.brand != "" && @product.brand != nil %>
+
+          <!-- </div> -->
+
+          <div class="col-md-6">
+            <div class="product-title"><%= @product.name %></div>
+
+            <div class="product-desc"><%= @product.description %></div>
+
+            <hr>
+
+            <div class="product-price list-inline">
+              <li>Quantity <%= @product.quantity %> units</li>
+              <li><%= number_to_currency(@product.price) %>/unit</li>
+              <li>Minimum Order <%= @product.moq %> units</li>
+            </div>
+
+            <div class="product-info">
+              <% if @product.brand != "" && @product.brand != nil %>
               <label>Brand:</label> <%= @product.brand %> <br>
-            <% end %>
-            <% if @product.sku != "" && @product.sku != nil %>
+              <% end %>
+              <% if @product.sku != "" && @product.sku != nil %>
               <label>SKU:</label> <%= @product.sku %> <br>
-            <% end %>
-            <% if @product.mfr != "" && @product.mfr != nil %>
+              <% end %>
+              <% if @product.mfr != "" && @product.mfr != nil %>
               <label>Manufacturer:</label> <%= @product.mfr %> <br>
-            <% end %>
-            <% if @product.msrp != "" && @product.msrp != nil %>
+              <% end %>
+              <% if @product.msrp != "" && @product.msrp != nil %>
               <label>MSRP:</label> <%= @product.msrp %> <br>
-            <% end %>
-            <% if @product.category1 != "" && @product.category2 != "" && @product.category1 != nil && @product.category2 != nil %>
+              <% end %>
+              <% if @product.category1 != "" && @product.category2 != "" && @product.category1 != nil && @product.category2 != nil %>
               <label>Categories:</label>
               <span class="list-inline">
                 <li><%= @product.category1 %></li>
                 <li><%= @product.category2 %></li>
               </span> <br>
-            <% end %>
-            <% if @product.upc != nil %>
+              <% end %>
+              <% if @product.upc != nil %>
               <label>UPC:</label> <%= @product.upc %> <br>
-            <% end %>
-            <% if @product.restrictions != "" && @product.restrictions != nil %>
+              <% end %>
+              <% if @product.restrictions != "" && @product.restrictions != nil %>
               <label>Restrictions:</label> <%= @product.restrictions %> <br>
-            <% end %>
-            <% if @product.warehouse_zip != "" && @product.warehouse_zip != nil %>
+              <% end %>
+              <% if @product.warehouse_zip != "" && @product.warehouse_zip != nil %>
               <label>Warehouse Zipcode:</label> <%= @product.warehouse_zip %> <br>
-            <% end %>
-            <% if @product.warranty != "" && @product.warranty != nil %>
+              <% end %>
+              <% if @product.warranty != "" && @product.warranty != nil %>
               <label>Warranty:</label> <%= @product.warranty %> <br>
-            <% end %>
-            <% if @product.link1_title != "" && @product.link1_title != nil && @product.link1 != "" && @product.link1 != nil %>
+              <% end %>
+              <% if @product.link1_title != "" && @product.link1_title != nil && @product.link1 != "" && @product.link1 != nil %>
               <%= link_to @product.link1_title, @product.link1 %> <br>
-            <% end %>
-            <% if @product.link2_title != "" && @product.link2_title != nil && @product.link2 != "" && @product.link2 != nil %>
+              <% end %>
+              <% if @product.link2_title != "" && @product.link2_title != nil && @product.link2 != "" && @product.link2 != nil %>
               <%= link_to @product.link2_title, @product.link2 %> <br>
-            <% end %>
-          </div>
+              <% end %>
+            </div>
 
-          <div class="product-stock">Available <%= @product.when_ready %>
-            <span id="reserve-button">
-              <%= link_to "Buy", buy_path, {class: "btn btn-success btn-lg"}%>
-              <button type="button" class="btn btn-success" id="reserve">
-                Reserve
-              </button>
-            </span>
-          </div>
+            <div class="product-stock">Available <%= @product.when_ready %>
+              <span id="reserve-button">
+                <%= link_to "Buy", buy_path, {class: "btn btn-success btn-lg", id:"reserve"}%>
+                <button type="button" class="btn btn-success" >
+                  Reserve
+                </button>
+              </span>
+            </div>
 
+
+          </div>
         </div>
       </div>
     </div>
