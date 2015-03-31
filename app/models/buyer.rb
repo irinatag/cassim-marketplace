@@ -1,0 +1,3 @@
+class Buyer < User
+
+end

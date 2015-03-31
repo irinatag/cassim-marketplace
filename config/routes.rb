@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
+  root 'registrations#new'
+  resources :users
+  resources :buyers, controller: 'registrations', type: 'Buyer'
+
+  resources :vendors
+
   resources :products do
       collection { post :import }
   end
-  
-  resources :vendors
-  resources :users
 
+  namespace :admin do
+   get '/dashboard', to: 'dashboard#index', as: '/'
+  end
 
-  root 'registrations#new'
   post "/mail" => "products#mail"
   post 'buy' => 'products#buy'
   #post '/reserve' => 'products#reserve_product'
