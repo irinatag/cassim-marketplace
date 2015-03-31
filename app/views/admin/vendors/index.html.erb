@@ -1,12 +1,12 @@
 <div class="container">
   <h1 class='page-header'>Vendors</h1>
 
-  <%= link_to "Add new vendor", new_vendor_path, class: "btn btn-primary" %>
+  <%= link_to "Add new vendor", new_admin_vendor_path, class: "btn btn-primary" %>
 
   <div class="row voffset">
     <ol id='list'>
       <% @vendors.each do |vendor| %>
-      <li><%= link_to vendor.name, vendor_path(vendor) %></li>
+      <li><%= link_to vendor.name, admin_vendor_path(vendor) %></li>
       <% end %>
     </ol>
   </div>

@@ -17,6 +17,6 @@
     </dl>
   </div>
 
-  <%= link_to 'Edit', edit_vendor_path(@vendor), class: "btn btn-success" %>
-  <%= link_to 'Delete', @vendor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  <%= link_to 'Edit', edit_admin_vendor_path(@vendor), class: "btn btn-success" %>
+  <%= link_to 'Delete', admin_vendor_path(@vendor), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 </div>

@@ -1,4 +1,4 @@
-class VendorsController < ApplicationController
+class Admin::VendorsController < ApplicationController
 
   def index
     @vendors = Vendor.all
@@ -12,8 +12,8 @@ class VendorsController < ApplicationController
     @vendor = Vendor.new(vendor_params)
 
     if @vendor.save
+      redirect_to admin_vendor_path(@vendor.id)
       flash[:success] = "Vendor was successfully created."
-      redirect_to vendor_path(@vendor.id)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class VendorsController < ApplicationController
 
     if @vendor.save
       flash[:success] = "Vendor was updated!"
-      redirect_to vendor_path(@vendor.id)
+      redirect_to admin_vendor_path(@vendor.id)
     else
       render :edit
     end
@@ -42,8 +42,8 @@ class VendorsController < ApplicationController
   def destroy
     @vendor = Vendor.find(params[:id])
     @vendor.destroy
-    redirect_to vendors_path
-    flash[:success] = "Vendor was successfully deleted." 
+    redirect_to admin_vendors_path
+    flash[:success] = "Vendor was successfully deleted."
   end
 
   private

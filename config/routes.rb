@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   resources :users
   resources :buyers, controller: 'registrations', type: 'Buyer'
 
-  resources :vendors
-
   resources :products do
       collection { post :import }
   end
 
   namespace :admin do
    get '/dashboard', to: 'dashboard#index', as: '/'
+   resources :vendors
   end
 
   post "/mail" => "products#mail"
