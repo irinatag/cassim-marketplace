@@ -11,9 +11,7 @@
 
   <% end %>
 </div> -->
-<h1>Sign Up</h1>
-
-<%= form_for @user, url: signup_path do |f| %>
+<%= form_for @user, url: signup_path, html: {class: "form-horizontal"} do |f| %>
 
 <% if @user.errors.present? %>
 <ul>
@@ -42,6 +40,13 @@
 </div>
 <div>
   <%= f.password_field :password_confirmation %>
+</div>
+
+<div>
+  <%= f.label :role %>
+</div>
+<div>
+  <%= f.select :role, User.roles %>
 </div>
 
 <div>
