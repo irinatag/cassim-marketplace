@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'registrations#new'
   resources :users
   resources :buyers, controller: 'registrations', type: 'Buyer'
