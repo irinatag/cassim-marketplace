@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'registrations#new'
   resources :users
   resources :buyers, controller: 'registrations', type: 'Buyer'
+  resources :vendors, :only => [:index, :show]
 
   resources :products do
       collection { post :import }
