@@ -1,54 +1,49 @@
 <div class="container">
-<div class="row">
-  <div class="col-sm-9 col-md-9 col-lg-9">
-    <div class="input-group">
-      <h1 class="page-header">Products</h1>
-      <%= link_to 'Add new product', new_product_path, class: "btn btn-primary" %>
-    </div><!-- /input-group -->
-  </div><!-- /.col-md-8 -->
-  <!-- <div class="clearfix visible-xs-block"></div> -->
-  <div class="col-sm-3 col-md-3 col-lg-3">
-    <div class="input-group voffset">
-      <%= form_tag(products_path, :method => "get", class: "navbar-form", id: "search-form") do %>
-      <div class="input-append">
-        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for.." %>
-        <button class="btn btn-primary form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-      </div>
-      <% end %>
-    </div><!-- /input-group -->
-  </div><!-- /.col-md-8 -->
-</div><!-- /.row -->
+  <div class="row">
+    <div class="col-sm-9 col-md-9 col-lg-9">
+      <div class="input-group">
+        <h1 class="page-header">Products</h1>
+        <%= link_to 'Add new product', new_product_path, class: "btn btn-primary" %>
+      </div> <!-- /input-group -->
+    </div> <!-- /.col-md-8 -->
 
-<!-- When submit the form, the view rendered will be the index view of our articles resource -->
-
-<% @products.each do |product| %>
-<div class="col-xs-8 col-md-8 col-md-offset-2 col-xs-offset-2">
-  <div class="thumbnail">
-    <h4 class="text-center"><span class="label label-info"><%= product.brand %></h4>
-      <%= image_tag product.image.url, class: "img-rounded img-responsive" %>
-      <div class="caption">
-        <div class="row">
-          <div class="col-md-6 col-xs-6">
-            <h3><%= product.name %></h3>
-            <p>
-              <%= product.description %>
-            </p>
-          </div>
-          <div class="col-md-6 col-xs-6 price">
-            <h3></h3>
-            <label>Quantity <%= product.quantity %> units</label> <br>
-            <label><%= number_to_currency product.price %></label><br>
-            <label>Minimum Order <%= product.moq %> units</label>
-          </div>
+    <div class="visible-xs-block"></div>
+    <div class="col-sm-3 col-md-3 col-lg-3">
+      <div class="input-group">
+        <%= form_tag(products_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+        <div class="input-append">
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for.." %>
+          <button class="btn btn-primary form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
+        <% end %>
+      </div> <!-- /input-group -->
+    </div> <!-- /.col-md-8 -->
+  </div> <!-- /.row -->
 
-        <div class="row">
-          <div class="col-md-6">
-            <%= button_to 'See More', product_path(product), :method => :get, class: "btn btn-success btn-product"%>
-          </div>
-        </div>
-      </div>
+  <!-- When submit the form, the view rendered will be the index view of our articles resource -->
+
+  <div id="grid-gallery" class="grid-gallery">
+    <section class="grid-wrap">
+      <ul class="grid">
+        <li class="grid-sizer"></li><!-- for Masonry column width -->
+        <li>
+          <figure>
+            <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+              <% @products.each do |product| %>
+              <div class="box col3">
+                <h4 class="text-center"><span class="label label-info"><%= product.brand %></h4>
+                  <%= image_tag product.image.url, class: "img-rounded img-responsive" %>
+                  <h3><%= product.name %></h3>
+                  <p><%= product.description %></p>
+                  <label>Quantity <%= product.quantity %> units</label> <br>
+                  <label><%= number_to_currency product.price %></label><br>
+                  <label>Minimum Order <%= product.moq %> units</label>
+                  <%= button_to 'See More', product_path(product), :method => :get, class: "btn btn-success btn-product"%>
+                  <% end %>
+                </div>
+              </div>
+            </figure>
+          </li>
+        </ul>
     </div>
-  </div>
-  <% end %>
 </div>
