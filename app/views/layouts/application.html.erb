@@ -13,8 +13,7 @@
         <div class="navbar-header">
           <%= link_to 'Cassim', products_path, class: "navbar-brand" %>
           <%= link_to 'Products', products_path, class: "nav navbar-text" %>
-          <%= link_to 'Vendors', vendors_path, class: "nav navbar-text" %>
-          <%= link_to 'Users', users_path, class: "nav navbar-text" %>
+          <%= link_to 'Vendors', admin_vendors_path, class: "nav navbar-text" %>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
@@ -28,7 +27,7 @@
         </ul>
       </div>
     </nav>
-  </div><!-- /.container-fluid -->
+  </div> <!-- /.container-fluid -->
 
   <div class="container-fluid">
     <% if notice %>
