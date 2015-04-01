@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users
   resources :buyers, controller: 'registrations', type: 'Buyer'
   resources :vendors, :only => [:index, :show]
-
+  resources :charges
+  
   resources :products do
       collection { post :import }
   end
