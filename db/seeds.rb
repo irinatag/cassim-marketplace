@@ -28,12 +28,19 @@ def create_products(links)
     noko = Nokogiri::HTML(response)
 
 
-    name = noko.css('div#listing-right-column span[itemprop="name"]').text
+    name = noko.css('div#listing-right-column span[itemprop="name"]').text.split(" ").join("_")
     price = noko.css('span#listing-price .currency-value').text
     desc = noko.css('div#description-text').text.strip
     vendor = noko.css('span[itemprop="title"]').text
     properties = noko.css('ul.properties li').text
-    image_url = noko.css('ul#image-carousel li:nth-child(1)').attr('data-full-image-href').value
+    image_location = noko.css('ul#image-carousel li:nth-child(1)').attr('data-full-image-href').value
+    image_data = Net::HTTP.get(URI(image_location))
+    current_dir = File.dirname(__FILE__)
+    image_url = File.join(current_dir, "..", "public","images", "#{vendor}_#{name}".concat(".jpg"))
+
+    f = File.new(image_url, "w:ASCII-8BIT")
+    f.write(image_data)
+    f.close()
 
     Product.create(
       name: name,

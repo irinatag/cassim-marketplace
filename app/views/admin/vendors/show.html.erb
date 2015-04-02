@@ -14,9 +14,19 @@
       <dt>Zipcode:</dt> <dd><%= @vendor.zipcode %></dd>
       <dt>Country:</dt> <dd><%= @vendor.country %></dd>
       <dt>Phone:</dt> <dd><%= @vendor.phone %></dd>
-    </dl>
-  </div>
+      <dt>Products offered:</dt>
+      <dd class='products-panel'>
+        <% @vendor.products.each do |product| %>
+        <div><%= link_to product.name, product_path(product) %><div>
+          <div class="col-md-3">
+            <%= image_tag product.image.url, class: "img-rounded img-responsive", alt: "image" %>
+          </div>
 
-  <%= link_to 'Edit', edit_admin_vendor_path(@vendor), class: "btn btn-success" %>
-  <%= link_to 'Delete', admin_vendor_path(@vendor), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-</div>
+          <% end %>
+        </dd>
+      </dl>
+    </div>
+
+    <%= link_to 'Edit', edit_admin_vendor_path(@vendor), class: "btn btn-success" %>
+    <%= link_to 'Delete', admin_vendor_path(@vendor), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  </div>
