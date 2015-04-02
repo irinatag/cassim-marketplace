@@ -1,14 +1,14 @@
-<div class="container-fluid" >
+<div class="container-fluid voffset" >
+  <div class="container">
+    <h1>Sign In</h1>
 
-  <h1>Sign In</h1>
-
-  <%= form_tag signin_path do |f| %>
+    <%= form_tag signin_path do |f| %>
 
     <% if @sign_in_error %>
-      <p class="alert alert-danger">
-         <%= @sign_in_error %>
-       </p>
-     <% end %>
+    <p class="alert alert-danger">
+      <%= @sign_in_error %>
+    </p>
+    <% end %>
 
     <div>
       <%= label_tag :email %>
@@ -25,9 +25,9 @@
     </div>
 
     <div>
-      <%= submit_tag "Sign in" %>
+      <%= submit_tag "Sign in", class: "btn btn-primary" %>
     </div>
 
-  <% end %>
-
+    <% end %>
+  </div>
 </div>

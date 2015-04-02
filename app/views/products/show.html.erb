@@ -1,30 +1,18 @@
-<div class="page-header">
-  <h3>
-    <%= link_to 'Edit', edit_product_path(@product) %>
-    <%= link_to 'Delete', product_path, method: :delete %>
-  </h3>
-</div>
-
-<!-- <div class="container">
-<div class="row">
-<div class="col-sm-6">
-<img src="//placehold.it/600x300" alt="Logo" class="img-responsive"/>
-</div>
-<div class="bottom-align-text col-sm-6">
-<h3>Some Text</h3>
-</div>
-</div>
-</div> -->
-
-<div class="container-fluid">
+<div class="container-fluid voffset">
   <div class="content-wrapper">
     <div class="item-container">
       <div class="container">
         <div class="row">
+          <div class="page-header">
+            <h3>
+              <%= link_to 'Edit', edit_product_path(@product) %>
+              <%= link_to 'Delete', product_path, method: :delete %>
+            </h3>
+          </div>
           <div class="col-md-6">
 
             <div class="col-md-8">
-              <%= image_tag @product.image.url, class: "img-rounded img-responsive", alt: "image" %>
+              <%= image_tag @product.image.url, path: ':rails_root/public/images/:filename', class: "img-rounded img-responsive", alt: "image" %>
             </div>
             <div class="bottom-align-text col-md-4">
               <i class=''></i>
@@ -85,11 +73,8 @@
             </div>
 
             <div class="product-stock">Available <%= @product.when_ready %>
-              <span id="reserve-button">
-                <%= link_to "Buy", buy_path, {class: "btn btn-success btn-lg", id:"reserve"}%>
-                <button type="button" class="btn btn-success" >
-                  Reserve
-                </button>
+              <span id="buy-button">
+                <%= link_to "Buy", buy_path, {class: "btn btn-success btn-lg", id:"buy"}%>
               </span>
             </div>
 
