@@ -28,19 +28,12 @@ def create_products(links)
     noko = Nokogiri::HTML(response)
 
 
-    name = noko.css('div#listing-right-column span[itemprop="name"]').text.split(" ").join("_")
+    name = noko.css('div#listing-right-column span[itemprop="name"]').text
     price = noko.css('span#listing-price .currency-value').text
     desc = noko.css('div#description-text').text.strip
     vendor = noko.css('span[itemprop="title"]').text
     properties = noko.css('ul.properties li').text
-    image_location = noko.css('ul#image-carousel li:nth-child(1)').attr('data-full-image-href').value
-    image_data = Net::HTTP.get(URI(image_location))
-    current_dir = File.dirname(__FILE__)
-    image_url = File.join(current_dir, "..", "public","images", "#{vendor}_#{name}".concat(".jpg"))
-
-    f = File.new(image_url, "w:ASCII-8BIT")
-    f.write(image_data)
-    f.close()
+    image_url = noko.css('ul#image-carousel li:nth-child(1)').attr('data-full-image-href').value
 
     Product.create(
       name: name,
@@ -48,7 +41,7 @@ def create_products(links)
       price: price,
       vendor: Vendor.create(name: vendor),
       properties: properties,
-      image_file_name: image_url
+      etsy_image_url: image_url
     )
   end
 
