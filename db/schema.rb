@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330170122) do
+ActiveRecord::Schema.define(version: 20150401235913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20150330170122) do
     t.string   "when_ready"
     t.string   "brand"
     t.string   "sku"
-    t.string   "mfr"
     t.decimal  "msrp"
     t.string   "vendor"
     t.string   "category1"
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150330170122) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "vendor_id"
+    t.string   "properties"
   end
 
   create_table "users", force: true do |t|

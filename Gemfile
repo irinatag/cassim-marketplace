@@ -47,9 +47,11 @@ gem 'simple_form'
 gem 'country_select'
 gem 'paperclip', '~> 4.2'
 gem 'iconv'
+gem 'prawn'
 gem 'masonry-rails'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'selenium-webdriver'
 
 group :development do
   gem "better_errors"
@@ -61,5 +63,3 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
 end
-
-gem 'prawn'
