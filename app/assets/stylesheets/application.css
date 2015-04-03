@@ -27,6 +27,10 @@
  @import "bootstrap";
  @import url('http://getbootstrap.com/dist/css/bootstrap.css');
 
+body {
+  background-color: #EBEFEE;
+}
+
 .voffset {
   margin-top: 3.5em;
 }

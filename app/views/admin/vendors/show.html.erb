@@ -1,25 +1,43 @@
-<div class="container voffset">
+<div class="container">
   <h2 class='page-header'>
     Vendor Name: <%= @vendor.name %>
   </h2>
 
-  <div class="row voffset">
+  <div class="row">
     <dl class="dl-horizontal">
-      <dt>Description:</dt> <dd><%= @vendor.description %></dd>
-      <dt>Business Email:</dt> <dd><%= @vendor.email_biz %></dd>
-      <dt>Finance Email:</dt> <dd><%= @vendor.email_finance %></dd>
-      <dt>Street Address:</dt> <dd><%= @vendor.address %></dd>
-      <dt>City:</dt> <dd><%= @vendor.city %></dd>
-      <dt>State:</dt> <dd><%= @vendor.state %></dd>
-      <dt>Zipcode:</dt> <dd><%= @vendor.zipcode %></dd>
-      <dt>Country:</dt> <dd><%= @vendor.country %></dd>
-      <dt>Phone:</dt> <dd><%= @vendor.phone %></dd>
-      <dt>Products offered:</dt>
+      <% if @vendor.description != "" && @vendor.description != nil %>
+        <dt>Description:</dt> <dd><%= @vendor.description %></dd>
+      <% end %>
+      <% if @vendor.email_biz != "" && @vendor.email_biz != nil %>
+        <dt>Business Email:</dt> <dd><%= @vendor.email_biz %></dd>
+      <% end %>
+      <% if @vendor.email_finance != "" && @vendor.email_finance != nil %>
+        <dt>Finance Email:</dt> <dd><%= @vendor.email_finance %></dd>
+      <% end %>
+      <% if @vendor.address != "" && @vendor.address != nil %>
+        <dt>Street Address:</dt> <dd><%= @vendor.address %></dd>
+      <% end %>
+      <% if @vendor.city != "" && @vendor.city != nil %>
+        <dt>City:</dt> <dd><%= @vendor.city %></dd>
+      <% end %>
+      <% if @vendor.state != "" && @vendor.state != nil %>
+        <dt>State:</dt> <dd><%= @vendor.state %></dd>
+      <% end %>
+      <% if @vendor.zipcode != "" && @vendor.zipcode != nil %>
+        <dt>Zipcode:</dt> <dd><%= @vendor.zipcode %></dd>
+      <% end %>
+      <% if @vendor.country != "" && @vendor.country != nil %>
+        <dt>Country:</dt> <dd><%= @vendor.country %></dd>
+      <% end %>
+      <% if @vendor.phone != "" && @vendor.phone != nil %>
+        <dt>Phone:</dt> <dd><%= @vendor.phone %></dd>
+      <% end %>
+      <dt>Products:</dt>
       <dd class='products-panel'>
         <% @vendor.products.each do |product| %>
         <div><%= link_to product.name, product_path(product) %><div>
           <div class="col-md-3">
-            <%= image_tag product.image.url, class: "img-rounded img-responsive", alt: "image" %>
+            <%= image_tag product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
           </div>
 
           <% end %>

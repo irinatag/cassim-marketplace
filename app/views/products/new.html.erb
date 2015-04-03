@@ -1,13 +1,14 @@
-<div class="container">
-  <h1>New Product</h1>
-</div>
+
+<h1 class="page-header">New Product</h1>
+
 <div class="class form-horizontal">
-  <h3>Import Products</h3>
+  <h3>Bulk Import Products</h3>
   <%= form_tag import_products_path, multipart: true do %>
 
   <%= file_field_tag :file %>
 
   <%= submit_tag "Import CSV", class: "btn btn-primary" %>
   <% end %>
+
   <%= render 'form' %>
 </div>
