@@ -1,9 +1,10 @@
-<div class="container voffset">
+<div class="container">
   <div class="row">
     <div class="col-sm-9 col-md-9 col-lg-9">
       <div class="input-group">
-        <h1 class="page-header">Products</h1>
         <%= link_to 'Add new product', new_product_path, class: "btn btn-primary" %>
+        <h1 class="page-header">Products</h1>
+
       </div> <!-- /input-group -->
     </div> <!-- /.col-md-8 -->
 
@@ -20,30 +21,16 @@
     </div> <!-- /.col-md-8 -->
   </div> <!-- /.row -->
 
-  <!-- When submit the form, the view rendered will be the index view of our articles resource -->
-
-  <div id="grid-gallery" class="grid-gallery">
-    <section class="grid-wrap">
-      <ul class="grid">
-        <li class="grid-sizer"></li><!-- for Masonry column width -->
-        <li>
-          <figure>
-            <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-              <% @products.each do |product| %>
-              <div class="box col3">
-                <h4 class="text-center"><span class="label label-info"><%= product.brand %></h4>
-                  <%= image_tag product.etsy_image_url, class: "img-rounded img-responsive" %>
-                  <h3><%= product.name %></h3>
-                  <p><%= product.description %></p>
-                  <label>Quantity <%= product.quantity %> units</label> <br>
-                  <label><%= number_to_currency product.price %></label><br>
-                  <label>Minimum Order <%= product.moq %> units</label>
-                  <%= button_to 'See More', product_path(product), :method => :get, class: "btn btn-success btn-product"%>
-                  <% end %>
-                </div>
-              </div>
-            </figure>
-          </li>
-        </ul>
+  <div class="container">
+    <div id="masonry-container">
+      <% @products.each do |product| %>
+      <div class="box">
+        <img src="<%= product.etsy_image_url %>" alt="image" />
+        <h3><%= product.name.truncate(30) %></h3>
+        <h6>Made by: <%= link_to product.vendor.name, admin_vendor_path(product.vendor) %></h6>
+        <h5><%= product.price %> USD</h5>
+        <p><%= product.description.truncate(90) %></p>
+      </div>
+      <% end %>
     </div>
-</div>
+  </div>

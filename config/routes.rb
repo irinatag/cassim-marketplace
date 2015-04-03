@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :buyers, controller: 'registrations', type: 'Buyer'
   resources :vendors, :only => [:index, :show]
   resources :charges
-  
+  get 'trending', to: 'products#trending'
+
   resources :products do
       collection { post :import }
   end

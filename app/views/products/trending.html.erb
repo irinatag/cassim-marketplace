@@ -1,0 +1,11 @@
+<div id="masonry-container">
+  <% @products.each do |product| %>
+  <div class="box">
+    <img src="<%= product.etsy_image_url %>" alt="image" />
+    <h3><%= product.name.truncate(30) %></h3>
+    <h6>Made by: <%= link_to product.vendor.name, admin_vendor_path(product.vendor) %></h6>
+    <h5><%= product.price %> USD</h5>
+    <p><%= product.description.truncate(90) %></p>
+  </div>
+  <% end %>
+</div>

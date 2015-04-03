@@ -31,6 +31,10 @@
   margin-top: 3.5em;
 }
 
+.voffset2 {
+  margin-top: 5em;
+}
+
 @media (min-width: 768px ) {
   .row {
       position: relative;
