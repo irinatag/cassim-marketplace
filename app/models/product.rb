@@ -16,6 +16,9 @@ class Product < ActiveRecord::Base
   presence: true
 
   belongs_to :vendor
+  has_many :order_items
+
+  default_scope { where(active: true) }
 
   def reserve(qty)
     integer_qty = qty.to_i

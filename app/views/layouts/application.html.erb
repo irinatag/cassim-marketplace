@@ -2,16 +2,16 @@
 <html>
 <head>
   <title>Cassim</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <!-- <div class="container"> -->
 
-  <div class="container-fluid">
+  <!-- <div class="container"> -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
+        <div class="container">
           <div class="navbar-header">
             <%= link_to 'Cassim', products_path, class: "navbar-brand" %>
             <%= link_to 'Products', products_path, class: "nav navbar-text" %>
@@ -19,6 +19,7 @@
           </div>
 
           <ul class="nav navbar-nav navbar-right">
+            <li class="cart-text"><%= render 'layouts/cart_text' %></li>
             <% if current_user %>
             <p class="navbar-text navbar-right">Signed in as <%= link_to current_user.email, user_path(current_user.id), class:"navbar-link" %></p>
             <li><%= link_to "Sign Out", signout_path %></li>
@@ -29,7 +30,7 @@
           </ul>
         </div>
       </nav>
-  </div> <!-- /.container-fluid -->
+  <!-- </div> /.container-fluid -->
 
   <div class="container-fluid">
       <% if notice %>
