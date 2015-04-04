@@ -3,8 +3,9 @@
     Vendor Name: <%= @vendor.name %>
   </h2>
 
-  <div class="row">
-    <dl class="dl-horizontal">
+  <div class="container">
+    <div id="masonry-container">
+      <%= image_tag @vendor.image.url, class: "crop" %>
       <% if @vendor.description != "" && @vendor.description != nil %>
         <dt>Description:</dt> <dd><%= @vendor.description %></dd>
       <% end %>
@@ -44,7 +45,6 @@
         </dd>
       </dl>
     </div>
-
-    <%= link_to 'Edit', edit_admin_vendor_path(@vendor), class: "btn btn-success" %>
-    <%= link_to 'Delete', admin_vendor_path(@vendor), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
   </div>
+  </div>
+</div>
