@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
   resources :buyers, controller: 'registrations', type: 'Buyer'
-  resources :vendors, :only => [:index, :show]
+  resources :vendors, :only => [:index]
   resources :charges
+
   get 'trending', to: 'products#trending'
 
   resources :products do
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-   get '/dashboard', to: 'dashboard#index', as: '/'
+   get '/dashboard', to: 'dashboard#show', as: '/'
    resources :vendors
   end
 
