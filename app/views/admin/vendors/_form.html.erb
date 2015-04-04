@@ -2,10 +2,12 @@
   <%= simple_form_for [:admin, @vendor], html: { class: 'form-group form-horizontal' },
   wrapper: :horizontal_form,
   wrapper_mappings: {
+    file: :horizontal_file_input,
     input: :input_wrapper
     } do |f| %>
     <%= f.error_notification %>
     <%= f.input :name, placeholder: 'Vendor name' %>
+    <%= f.input :image, as: :file, label: 'Store Profile Image' %>
     <%= f.input :description, placeholder: 'Short description' %>
     <%= f.input :email_biz, placeholder: 'Sales Email' %>
     <%= f.input :email_finance, placeholder: 'Finance Email' %>
@@ -17,9 +19,9 @@
     <%= f.input :phone, placeholder: 'Phone' %>
 
     <% if params[:action] == 'new' %>
-    <%= f.button :submit, "Submit Vendor", class: "btn btn-primary" %>
+    <%= f.button :submit, "Submit Profile", class: "btn btn-primary" %>
     <% else %>
-    <%= f.button :submit, "Update Vendor", class: "btn btn-primary" %>
+    <%= f.button :submit, "Update Profile", class: "btn btn-primary" %>
     <% end %>
     <% end %>
 </div>

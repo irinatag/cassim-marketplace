@@ -1,12 +1,9 @@
 class Vendor < ActiveRecord::Base
   validates :name,
-    # :email_biz,
-    # :address,
-    # :city,
-    # :state,
-    # :zipcode,
-    # :phone,
     presence: true
+
+  has_attached_file :image
+  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/gif', 'image/png', 'image/jpg']
 
   has_many :products
 end
