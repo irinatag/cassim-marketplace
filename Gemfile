@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks'
 gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -52,6 +52,7 @@ gem 'masonry-rails'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'selenium-webdriver'
+gem "rails-erd"
 
 group :development do
   gem "better_errors"
