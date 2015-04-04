@@ -14,8 +14,8 @@
         <div class="container">
           <div class="navbar-header">
             <%= link_to 'Cassim', products_path, class: "navbar-brand" %>
-            <%= link_to 'Products', products_path, class: "nav navbar-text" %>
-            <%= link_to 'Vendors', admin_vendors_path, class: "nav navbar-text" %>
+            <%= link_to 'Browse by Products', products_path, class: "nav navbar-text" %>
+            <%= link_to 'Browse by Sellers', admin_vendors_path, class: "nav navbar-text" %>
           </div>
 
           <ul class="nav navbar-nav navbar-right">
@@ -32,13 +32,13 @@
       </nav>
   <!-- </div> /.container-fluid -->
 
-  <div class="container-fluid">
+  <div class="container-fluid voffset2">
       <% if notice %>
       <p id="notice" class="alert alert-success"><%= notice %></p>
       <% end %>
   </div>
 
-  <div class="container-fluid voffset">
+  <div class="container-fluid">
       <%= yield %>
   </div>
 
