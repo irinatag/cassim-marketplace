@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-sm-9 col-md-9 col-lg-9">
       <div class="input-group">
-        <%= link_to 'Apply as Seller', new_admin_vendor_path, class: "btn btn-primary" %>
 
         <h1 class="page-header">Products</h1>
 
@@ -22,17 +21,15 @@
     </div> <!-- /.col-md-8 -->
   </div> <!-- /.row -->
 
-  <div class="container">
+
     <div id="masonry-container">
       <% @products.each do |product| %>
       <div class="box">
         <img src="<%= product.etsy_image_url %>" alt="image" />
         <h3><%= product.name.truncate(30) %></h3>
         <h6>Made by: <%= link_to product.vendor.name, admin_vendor_path(product.vendor) %></h6>
-        <!-- <h5><%= product.price %> USD</h5> -->
         <p><%= product.description.truncate(90) %></p>
         <div><%= render "product_row", product: product, order_item: @order_item %></div>
       </div>
       <% end %>
     </div>
-  </div>
