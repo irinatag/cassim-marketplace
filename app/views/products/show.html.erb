@@ -10,7 +10,12 @@
           <div class="col-md-6">
 
             <div class="col-md-8">
+              <% if @product.etsy_image_url != "" && @product.etsy_image_url != nil %>
               <%= image_tag @product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
+                <% else %>
+              <%= image_tag @product.image, class: "img-rounded img-responsive", alt: "image" %>
+              <% end %>
+
             </div>
             <div class="bottom-align-text col-md-4">
               <i class=''></i>

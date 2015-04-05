@@ -25,7 +25,11 @@
     <div id="masonry-container">
       <% @products.each do |product| %>
       <div class="box">
-        <img src="<%= product.etsy_image_url %>" alt="image" />
+        <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
+          <img src="<%= product.etsy_image_url %>" alt="image" />
+          <% else %>
+          <img src="<%= product.image %>" alt="image" />
+        <% end %>
         <h3><%= link_to product.name.truncate(30), product_path(product) %></h3>
         <h6>Made by: <%= link_to product.vendor.name, vendor_path(product.vendor) %></h6>
         <p><%= product.description.truncate(90) %></p>

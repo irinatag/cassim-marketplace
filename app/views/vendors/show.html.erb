@@ -4,7 +4,6 @@
     <%= @vendor.name %>
   </h2>
 
-  <div class="container">
     <div id="masonry-container">
       <%= image_tag @vendor.image.url, class: "crop" %>
       <% if @vendor.description != "" && @vendor.description != nil %>
@@ -37,15 +36,19 @@
       <dt>Products:</dt>
       <dd class='products-panel'>
         <% @vendor.products.each do |product| %>
-        <div><%= link_to product.name, product_path(product) %><div>
+        <div><%= link_to product.name, product_path(product) %></div>
           <div class="col-md-3">
-            <%= image_tag product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
+            <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
+              <%= image_tag product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
+            <% else %>
+              <%= image_tag product.image, class: "img-rounded img-responsive", alt: "image" %>
+            <% end %>
+
           </div>
 
           <% end %>
         </dd>
       </dl>
-    </div>
   </div>
   </div>
 </div>
