@@ -10,11 +10,11 @@
           <div class="col-md-6">
 
             <div class="col-md-8">
-              <%= image_tag @product.etsy_image_url, path: ':rails_root/public/images/:filename', class: "img-rounded img-responsive", alt: "image" %>
+              <%= image_tag @product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
             </div>
             <div class="bottom-align-text col-md-4">
               <i class=''></i>
-              <h4>Sold by:</h4> <%= link_to @product.vendor.name, admin_vendor_path(@product.vendor) %>
+              <h4>Sold by:</h4> <%= link_to @product.vendor.name, vendor_path(@product.vendor) %>
               <i class='glyphicon glyphicon-map-marker'></i>
               <%= @product.vendor.city %> , <%= @product.vendor.state %>
             </div>
@@ -68,9 +68,6 @@
               <%= link_to @product.link2_title, @product.link2 %> <br>
               <% end %>
             </div>
-
-            <!-- <%= link_to 'Edit', edit_product_path(@product), {class: "btn btn-success", id:"buy"} %>
-            <%= link_to 'Delete', product_path, method: :delete %> -->
 
             <div class="product-stock">Available <%= @product.when_ready %>
               <span id="buy-button">

@@ -10,19 +10,19 @@ Rails.application.routes.draw do
   resources :users
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
-  resources :buyers, controller: 'registrations', type: 'Buyer'
-  resources :vendors, :only => [:index]
+  resources :vendors, :only => [:index, :show]
   resources :charges
 
   get 'trending', to: 'products#trending'
 
-  resources :products do
-      collection { post :import }
-  end
+  resources :products, only: [:index, :reserve_product, :show, :buy, :trending]
 
   namespace :admin do
    get '/dashboard/:id', to: 'vendors#dashboard'
    resources :vendors
+   resources :products do
+       collection { post :import }
+   end
   end
 
   post "/mail" => "products#mail"
