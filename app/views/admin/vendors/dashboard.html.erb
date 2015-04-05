@@ -1,8 +1,22 @@
 <div class="container">
-  <h1>Administration Panel</h1>
+  <h1> <%= @vendor.name %> Administration Panel</h1>
 
   <%= link_to 'Manage Products', products_path, class: "btn btn-success" %></li>
+  <%= link_to 'Add Product', new_admin_product_path, class: "btn btn-success" %></li>
   <%= link_to 'Manage Profile', edit_admin_vendor_path(@vendor), class: "btn btn-success" %></li>
   <%= link_to 'Delete My Profile', admin_vendor_path(@vendor), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+
+
+  <div id="masonry-container">
+    <% @vendor.products.each do |product| %>
+    <div class="box">
+      <img src="<%= product.etsy_image_url %>" alt="image" />
+      <h3><%= link_to product.name.truncate(30), product_path(product) %></h3>
+      <h6>Made by: <%= link_to product.vendor.name, vendor_path(product.vendor) %></h6>
+      <p><%= product.description.truncate(90) %></p>
+    </div>
+    <% end %>
+  </div>
+
 
 </div>
