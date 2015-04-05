@@ -9,4 +9,9 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_one :vendor
+
+  def is_vendor?
+    user = User.where(is_vendor?: true)
+  end
+
 end
