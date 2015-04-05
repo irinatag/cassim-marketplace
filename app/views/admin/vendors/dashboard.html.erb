@@ -2,9 +2,7 @@
   <h1>Administration Panel</h1>
 
   <%= link_to 'Manage Products', products_path, class: "btn btn-success" %></li>
-  <%= link_to 'Manage Profile', admin_vendor_path(@vendor), class: "btn btn-success" %></li>
-
-  <%= link_to 'Edit', edit_admin_vendor_path(@vendor), class: "btn btn-success" %>
-  <%= link_to 'Delete', admin_vendor_path(@vendor), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  <%= link_to 'Manage Profile', edit_admin_vendor_path(@vendor), class: "btn btn-success" %></li>
+  <%= link_to 'Delete My Profile', admin_vendor_path(@vendor), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 
 </div>

@@ -7,7 +7,7 @@
     <ol id='list'>
       <% @vendors.each do |vendor| %>
       <li><%= image_tag vendor.image, class: "img-rounded img-responsive", alt: "image" %></li>
-      <li><%= link_to vendor.name, vendor_path(@vendor) %></li>
+      <li><%= link_to vendor.name, vendor_path(vendor) %></li>
       <% end %>
     </ol>
   </div>

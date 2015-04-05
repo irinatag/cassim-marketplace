@@ -14,7 +14,8 @@ class Admin::VendorsController < ApplicationController
     @vendor = Vendor.new(vendor_params)
 
     if @vendor.save
-      # redirect_to admin_vendor_path(@vendor.id)
+      current_user.update_attributes(is_vendor?: true)
+      current_user.save
       redirect_to admin_vendor_path(@vendor.id), notice: "Congratulations! You've been successfully added as a seller. Manage your profile settings from the Admin Panel below."
     else
       render :new
@@ -43,7 +44,9 @@ class Admin::VendorsController < ApplicationController
   def destroy
     @vendor = Vendor.find(params[:id])
     @vendor.destroy
-    redirect_to admin_vendors_path, notice: "Vendor was successfully deleted."
+    current_user.update_attributes(is_vendor?: false)
+    current_user.save
+    redirect_to admin_vendors_path, notice: "Vendor Profile was successfully deleted."
   end
 
   def dashboard
