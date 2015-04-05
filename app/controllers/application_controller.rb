@@ -3,15 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :current_order, :is_vendor?
+  helper_method :current_user, :current_order, :update_vendor
 
   def current_user
     User.find_by(id: session[:user_id])
   end
 
-  def is_vendor?
+  def update_vendor
     if !session[:vendor_id].nil?
-      User.find(session[:vendor_id])
+      User.find_by(id: session[:user_id]).update_attributes(vendor_id: @vendor.id)
     else
       return false
     end

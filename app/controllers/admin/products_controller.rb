@@ -1,48 +1,46 @@
-class ProductsController < ApplicationController
+class Admin::ProductsController < ApplicationController
+
+  before_filter :authenticate
+
+  before_action do
+    @vendor = Vendor.find(params[:vendor_id])
+  end
+
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all.order("created_at DESC")
-    @order_item = current_order.order_items.new
+    @products = @vendor.products.all
+  end
+
+  def show
+    @product = @vendor.products.find(params[:id])
   end
 
   def new
-    @product = Product.new
+    @product = @vendor.products.new
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = @vendor.products.new(product_params)
 
     if @product.save
-      flash[:success] = "Product was successfully saved."
-      redirect_to product_path(@product.id)
+      redirect_to admin_vendor_product_path(@vendor, @product), notice: "Product was successfully saved."
     else
       render :new
     end
   end
 
-  def show
-    @product = Product.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = ProductPdf.new(@product)
-        send_data pdf.render, filename: 'product.pdf', type: 'application/pdf'
-      end
-    end
-  end
-
   def edit
-    @product = Product.find(params[:id])
+    @product = @vendor.products.find(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
+    @product = @vendor.products.find(params[:id])
     @product.update(product_params)
 
     if @product.save
       flash[:success] = "Product was successfully updated."
-      redirect_to product_path(@product.id)
+      redirect_to admin_product_path(@product)
     else
       render :edit
     end
@@ -87,6 +85,12 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def product_params
     params.require(:product).permit(:name, :description, :quantity, :price, :moq, :when_ready, :brand, :sku, :properties, :msrp, :vendor_id, :category1, :category2, :upc, :restructions, :warehouse_zip, :warranty, :link1, :link1_title, :link2, :link2_title, :restrictions, :image)
   end

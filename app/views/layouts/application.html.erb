@@ -20,10 +20,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="cart-text"><%= render 'layouts/cart_text' %></li>
-            <% if current_user && is_vendor? %>
-              <p class="navbar-text navbar-right">Go to <%= link_to 'My Admin Panel', admin_path(is_vendor.id), class:"navbar-link" %></p>
-              <li><%= link_to "Sign Out", signout_path %></li>
-            <% elsif current_user %>
+            <% if current_user %>
               <p class="navbar-text navbar-right">Signed in as <%= link_to current_user.email, user_path(current_user.id), class:"navbar-link" %></p>
               <li><%= link_to "Sign Out", signout_path %></li>
             <% else %>

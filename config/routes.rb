@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'order_items/destroy'
 
-  root 'registrations#new'
+  root 'products#index'
   resources :users
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
@@ -19,9 +19,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
    get '/dashboard/:id', to: 'vendors#dashboard'
-   resources :vendors
-   resources :products do
-       collection { post :import }
+   resources :vendors do
+     resources :products do
+         collection { post :import }
+     end
    end
   end
 

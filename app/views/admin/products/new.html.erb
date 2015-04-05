@@ -1,9 +1,8 @@
-
-<h1 class="page-header">New Product</h1>
+<h2 class="page-header">Add New Product or Bulk Upload</h3>
 
 <div class="class form-horizontal">
-  <h3>Bulk Import Products</h3>
-  <%= form_tag import_products_path, multipart: true do %>
+  <h3>Bulk Upload Products</h3>
+  <%= form_tag import_admin_vendor_products_path(@vendor), multipart: true do %>
 
   <%= file_field_tag :file %>
 
