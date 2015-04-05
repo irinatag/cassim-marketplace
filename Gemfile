@@ -53,6 +53,7 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'selenium-webdriver'
 gem "rails-erd"
+gem "byebug"
 
 group :development do
   gem "better_errors"
