@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-   get '/dashboard', to: 'dashboard#show', as: '/'
+   get '/dashboard/:id', to: 'vendors#dashboard'
    resources :vendors
   end
 

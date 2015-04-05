@@ -1,4 +1,5 @@
 class Admin::VendorsController < ApplicationController
+
   before_filter :authenticate
 
   def index
@@ -43,6 +44,10 @@ class Admin::VendorsController < ApplicationController
     @vendor = Vendor.find(params[:id])
     @vendor.destroy
     redirect_to admin_vendors_path, notice: "Vendor was successfully deleted."
+  end
+
+  def dashboard
+    @vendor = Vendor.find(params[:id])
   end
 
   private
