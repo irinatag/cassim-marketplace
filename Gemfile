@@ -6,6 +6,7 @@ gem 'rails', '4.1.8'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
+gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -18,7 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks'
+gem 'turbolinks'
 gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -42,7 +43,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'bootstrap-sass', '~> 3.3.3'
 gem 'simple_form'
 gem 'country_select'
 gem 'paperclip', '~> 4.2'
