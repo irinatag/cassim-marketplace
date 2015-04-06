@@ -1,9 +1,9 @@
-.box {
+.medium {
   width: 355px;
   background-color: #fff;
 }
 
-.smallbox {
+.small {
   width: 196px;
   padding: 5px;
   background-color: #fff;
@@ -15,4 +15,9 @@
 
 .product_show_panel {
   background-color: #fff;
+}
+
+.product-stock {
+  font-style: italic;
+  color: orange;
 }

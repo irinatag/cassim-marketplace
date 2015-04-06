@@ -40,7 +40,7 @@
 
       <div id="masonry-container">
         <% @vendor.products.each do |product| %>
-        <div class="smallbox">
+        <div class="box small">
             <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
               <%= image_tag product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
             <% else %>

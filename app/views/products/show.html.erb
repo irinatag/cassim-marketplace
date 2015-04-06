@@ -31,8 +31,8 @@
             <div class="product-desc"><%= @product.description %></div>
             <hr>
             <div class="product-price list-inline">
-              <li><%= number_to_currency(@product.price) %>/unit</li>
-              <li>Minimum Order <%= @product.moq %> units</li>
+              <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency @product.price %></span></h4>
+              <h6 class="text-right">Minimum Order: <span style="color: light-grey"><%= @product.moq %> units</span></h6>
             </div>
 
             <div class="product-info">

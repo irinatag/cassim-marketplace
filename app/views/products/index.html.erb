@@ -4,7 +4,7 @@
     <div id="masonry-container">
       <div class="container">
       <% @products.each do |product| %>
-      <div class="box">
+      <div class="box medium">
         <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
           <img src="<%= product.etsy_image_url %>" alt="image" />
           <% else %>
