@@ -1,15 +1,23 @@
 <div class="container">
-  <h1 class='page-header'>Vendors</h1>
+  <h1 class="page-header">Browse all sellers</h1>
 
     <%= link_to 'Become a Seller', new_admin_vendor_path, class: "btn btn-primary" %>
 
-  <div class="row voffset">
-    <ol id='list'>
+  <div id="masonry-container">
+    <div class="container">
       <% @vendors.each do |vendor| %>
-      <li><%= image_tag vendor.image, class: "img-rounded img-responsive", alt: "image" %></li>
-      <li><%= link_to vendor.name, vendor_path(vendor) %></li>
+      <div class="box">
+        <% if vendor.etsy_profile_image_url != "" && vendor.etsy_profile_image_url != nil %>
+        <img src="<%= vendor.etsy_profile_image_url %>" alt="image" />
+        <% else %>
+        <img src="<%= vendor.image %>" alt="image" />
+        <% end %>
+        <h5>Made by: <%= link_to vendor.name, vendor_path(vendor) %></h5>
+        <% if vendor.description != "" && vendor.description != nil %>
+        <p><%= vendor.description.truncate(90) %></p>
+        <% end %>
+      </div>
       <% end %>
-    </ol>
+    </div>
   </div>
-
 </div>

@@ -6,8 +6,11 @@
     input: :input_wrapper
     } do |f| %>
     <%= f.error_notification %>
-    <%= f.input :name, placeholder: 'Vendor name' %>
-    <%= f.input :image, as: :file, label: 'Store Profile Image' %>
+    <%= f.input :name, placeholder: 'Store name' %>
+    <%= f.input :owner_name, placeholder: 'Owner name' %>
+    <%= f.input :image, as: :file, label: 'Store Banner' %>
+    <%= f.input :avatar, as: :file, label: 'Store Avatar' %>
+    <%= f.input :tagline, placeholder: 'eg. Handmade beaded jewelry, Handmade book bindings, etc. ' %>
     <%= f.input :description, placeholder: 'Short description' %>
     <%= f.input :email_biz, placeholder: 'Sales Email' %>
     <%= f.input :email_finance, placeholder: 'Finance Email' %>
