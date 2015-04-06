@@ -106,3 +106,25 @@ body {
     width: 100%;
   }
 }
+
+.btn-autosize {
+  width: 25%;
+}
+
+@media screen and (max-width: 60em) {
+  /* responsive columns; see "Element sizing" on http://masonry.desandro.com/options.html */
+  .btn-autosize {
+    width: 33.3%;
+  }
+
+@media screen and (max-width: 35em) {
+  .btn-autosize {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 24em) {
+  .btn-autosize {
+    width: 100%;
+  }
+}
