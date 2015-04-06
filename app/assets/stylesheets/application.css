@@ -14,18 +14,12 @@
  *= require_self
  *= require jquery-ui
  *= require 'masonry/basic'
- *= require 'masonry/centered'
- *= require 'masonry/fluid'
- *= require 'masonry/gutters'
- *= require 'masonry/infinitescroll'
- *= require 'masonry/right-to-left'
- *= require 'masonry/transitions'
  *= require_tree .
  */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import url('http://getbootstrap.com/dist/css/bootstrap.css');
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url('http://getbootstrap.com/dist/css/bootstrap.css');
 
 body {
   background-color: #EBEFEE;
@@ -128,4 +122,4 @@ body {
   .btn-autosize {
     width: 100%;
   }
-}
+}*/

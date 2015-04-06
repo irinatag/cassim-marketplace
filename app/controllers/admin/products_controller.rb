@@ -6,7 +6,7 @@ class Admin::ProductsController < ApplicationController
     @vendor = Vendor.find(params[:vendor_id])
   end
 
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = @vendor.products.all
@@ -46,9 +46,8 @@ class Admin::ProductsController < ApplicationController
   end
 
   def destroy
-    @product = @vendor.products.find(params[:id])
     @product.destroy
-    redirect_to admin_vendor_product_path(@vendor, @product), notice: "Product was successfully deleted."
+    redirect_to admin_vendor_path(@vendor), notice: "Product was successfully deleted."
   end
 
   def mail
