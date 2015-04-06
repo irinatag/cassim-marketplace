@@ -1,38 +1,36 @@
-<div class="container-fluid">
-  <div class="content-wrapper">
-    <div class="item-container">
-      <div class="container">
-        <div class="row">
+<div class="container jumbotron product_show_panel">
           <div class="page-header">
             <h3 class="product-title"><%= @product.name %>
             </h3>
           </div>
-          <div class="col-md-6">
 
-            <div class="col-md-8">
+          <div class="container image_panel col-sm-6">
+            <div>
               <% if @product.etsy_image_url != "" && @product.etsy_image_url != nil %>
               <%= image_tag @product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
                 <% else %>
               <%= image_tag @product.image, class: "img-rounded img-responsive", alt: "image" %>
               <% end %>
-
             </div>
-            <div class="bottom-align-text col-md-4">
-              <i class=''></i>
-              <h4>Sold by:</h4> <%= link_to @product.vendor.name, vendor_path(@product.vendor) %>
-              <i class='glyphicon glyphicon-map-marker'></i>
-              <%= @product.vendor.city %> , <%= @product.vendor.state %>
+            <div>
+              <h4>Sold by: <%= link_to @product.vendor.name, vendor_path(@product.vendor) %>
+
+              <% if @product.vendor.city != '' && @product.vendor.city != nil %>
+                <i class='glyphicon glyphicon-map-marker'></i>
+                <%= @product.vendor.city %> ,
+              <% end %>
+              <% if @product.vendor.state != '' && @product.vendor.state != nil %>
+                <%= @product.vendor.state %>
+              <% end %>
+
+              </h4>
             </div>
           </div>
 
-          <div class="col-md-6">
-
+          <div class="container col-sm-6">
             <div class="product-desc"><%= @product.description %></div>
-
             <hr>
-
             <div class="product-price list-inline">
-              <li>Quantity <%= @product.quantity %> units</li>
               <li><%= number_to_currency(@product.price) %>/unit</li>
               <li>Minimum Order <%= @product.moq %> units</li>
             </div>
@@ -80,10 +78,6 @@
               </span>
             </div>
 
-
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

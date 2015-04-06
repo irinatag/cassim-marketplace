@@ -84,10 +84,10 @@ class Admin::ProductsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  # def set_product
-  #   @product = @vendor.products.find(params[:id])
-  # end
+  #Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = @vendor.products.find(params[:id])
+  end
 
   def product_params
     params.require(:product).permit(:name, :description, :quantity, :price, :moq, :when_ready, :brand, :sku, :properties, :msrp, :vendor_id, :category1, :category2, :upc, :restructions, :warehouse_zip, :warranty, :link1, :link1_title, :link2, :link2_title, :restrictions, :image)

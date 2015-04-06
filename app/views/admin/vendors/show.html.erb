@@ -37,16 +37,22 @@
         <dt>Phone:</dt> <dd><%= @vendor.phone %></dd>
       <% end %>
       <dt>Products:</dt>
-      <dd class='products-panel'>
-        <% @vendor.products.each do |product| %>
-        <div><%= link_to product.name, product_path(product) %><div>
-          <div class="col-md-3">
-            <%= image_tag product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
-          </div>
 
+      <div id="masonry-container">
+        <% @vendor.products.each do |product| %>
+        <div class="smallbox">
+            <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
+              <%= image_tag product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
+            <% else %>
+              <%= image_tag product.image, class: "img-rounded img-responsive", alt: "image" %>
+            <% end %>
+            <h6><%= link_to product.name.truncate(25), product_path(product) %></h6>
+            <h7 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency product.price %></span></h7>
+            <p><%= product.description.truncate(30) %></p>
+        </div>
           <% end %>
-        </dd>
-      </dl>
+      </div>
+
     </div>
   </div>
   </div>

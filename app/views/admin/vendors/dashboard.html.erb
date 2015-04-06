@@ -22,8 +22,9 @@
       <h6>Made by: <%= link_to product.vendor.name, vendor_path(product.vendor) %></h6>
       <p><%= product.description.truncate(90) %></p>
       <div class="input-group col6 pull-right">
-          <%= link_to "Edit", edit_admin_vendor_product_path(@vendor, product), class: "btn btn-success" %>
-          <%= link_to 'Delete', admin_vendor_product_path(@vendor, product), method: :delete, data: { confirm: 'Are you sure? This will delete the product permanently.' }, class: "btn btn-danger" %>
+          <i class="glyphicon glyphicon-pencil"> <%= link_to "Edit", edit_admin_vendor_product_path(@vendor, product) %></i>
+          <br>
+          <i class="glyphicon glyphicon-trash"> <%= link_to 'Delete', admin_vendor_product_path(@vendor, product), method: :delete, data: { confirm: 'Are you sure? This will delete the product permanently.' } %></i>
       </div>
     </div>
     <% end %>
