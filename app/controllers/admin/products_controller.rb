@@ -6,7 +6,7 @@ class Admin::ProductsController < ApplicationController
     @vendor = Vendor.find(params[:vendor_id])
   end
 
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update]
 
   def index
     @products = @vendor.products.all
@@ -39,18 +39,16 @@ class Admin::ProductsController < ApplicationController
     @product.update(product_params)
 
     if @product.save
-      flash[:success] = "Product was successfully updated."
-      redirect_to admin_product_path(@product)
+      redirect_to admin_vendor_product_path(@vendor, @product), notice: "Product was successfully updated."
     else
       render :edit
     end
   end
 
   def destroy
-    @product = Product.find(params[:id])
+    @product = @vendor.products.find(params[:id])
     @product.destroy
-    flash[:success] = "Product was successfully deleted."
-    redirect_to products_path
+    redirect_to admin_vendor_product_path(@vendor, @product), notice: "Product was successfully deleted."
   end
 
   def mail
@@ -87,9 +85,9 @@ class Admin::ProductsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_product
-    @product = Product.find(params[:id])
-  end
+  # def set_product
+  #   @product = @vendor.products.find(params[:id])
+  # end
 
   def product_params
     params.require(:product).permit(:name, :description, :quantity, :price, :moq, :when_ready, :brand, :sku, :properties, :msrp, :vendor_id, :category1, :category2, :upc, :restructions, :warehouse_zip, :warranty, :link1, :link1_title, :link2, :link2_title, :restrictions, :image)

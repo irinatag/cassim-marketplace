@@ -1,25 +1,32 @@
 <div class="container">
   <div class="container">
-  <h1> <%= @vendor.name %> Administration Panel</h1>
+    <h1> <%= @vendor.name %> Administration Panel</h1>
 
-    <%= link_to 'Manage Products', products_path, class: "btn btn-success" %></li>
-    <%= link_to 'Add Product', new_admin_vendor_product_path(@vendor), class: "btn btn-success" %></li>
+    <%= link_to 'Upload More Products', new_admin_vendor_product_path(@vendor), class: "btn btn-success" %></li>
     <%= link_to 'Manage Profile', edit_admin_vendor_path(@vendor), class: "btn btn-success" %></li>
-    <%= link_to 'Delete My Profile', admin_vendor_path(@vendor), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    <%= link_to 'Delete My Profile', admin_vendor_path(@vendor), method: :delete, data: { confirm: 'Are you sure? This will delete your profile permanently.' }, class: "btn btn-danger" %>
   </div>
 
-  <h3>All Products In Your Store:</h3>
+  <h3>Manage products in your store:</h3>
 
   <div id="masonry-container">
     <% @vendor.products.each do |product| %>
     <div class="box">
+      <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
       <img src="<%= product.etsy_image_url %>" alt="image" />
+      <% else %>
+      <img src="<%= product.image %>" alt="image" />
+      <% end %>
+
       <h3><%= link_to product.name.truncate(30), product_path(product) %></h3>
       <h6>Made by: <%= link_to product.vendor.name, vendor_path(product.vendor) %></h6>
       <p><%= product.description.truncate(90) %></p>
+      <div class="input-group col6 pull-right">
+          <%= link_to "Edit", edit_admin_vendor_product_path(@vendor, product), class: "btn btn-success" %>
+          <%= link_to 'Delete', admin_vendor_product_path(@vendor, product), method: :delete, data: { confirm: 'Are you sure? This will delete the product permanently.' }, class: "btn btn-danger" %>
+      </div>
     </div>
     <% end %>
   </div>
-
 
 </div>
