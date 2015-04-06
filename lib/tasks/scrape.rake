@@ -1,4 +1,4 @@
-def get_urls(url)
+def get_trending_urls(url)
   driver = Selenium::WebDriver.for :firefox
   driver.get(url)
   driver.switch_to.default_content
@@ -12,9 +12,7 @@ def get_urls(url)
   trending_item_urls
 end
 
-
-
-def create_products(links)
+def create_trending_products(links)
   links.each do |link|
     response = RestClient.get(link).body
     noko = Nokogiri::HTML(response)
@@ -45,8 +43,8 @@ namespace :etsy do
   task scrape: :environment do
     Product.delete_all
 
-    etsy_trending_links = get_urls("http://etsy.com/trending")
-    create_products(etsy_trending_links)
+    etsy_trending_links = get_trending_urls("http://etsy.com/trending")
+    create_trending_products(etsy_trending_links)
 
   end
 end

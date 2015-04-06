@@ -6,7 +6,7 @@ feature 'user authentication' do
   end
 
   scenario 'users can sign in with valid email and password' do
-    visit '/products'
+    visit root_path
     click_on 'Sign In'
 
     fill_in :email, :with => 'user@test.com'
