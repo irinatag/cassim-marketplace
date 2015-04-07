@@ -13,6 +13,10 @@
   display: inline-block;
 }
 
+.avatar_panel {
+  padding-top: 5px;
+}
+
 .show_panel {
   background-color: #fff;
   border-radius: 5px;

@@ -18,17 +18,12 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $('#masonry-container').masonry({
-    itemSelector: '.box'
+
+var $container = $('#masonry-container').masonry();
+
+  $container.imagesLoaded( function() {
+    $container.masonry({
+      itemSelector: '.box'
+    });
   });
 });
-
-// var container = document.querySelector('#masonry-container');
-//
-//   var masonry = new Masonry(container, {
-//     itemSelector: '.smallbox'
-//   });
-//
-//   var masonry = new Masonry(container, {
-//     itemSelector: '.box'
-//   });
