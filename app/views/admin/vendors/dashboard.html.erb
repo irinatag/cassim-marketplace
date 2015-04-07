@@ -9,26 +9,26 @@
 
   <h3>Manage products in your store:</h3>
 
-      <div id="masonry-container">
-        <% @vendor.products.each do |product| %>
-        <div class="box">
-          <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
-          <img src="<%= product.etsy_image_url %>" alt="image" />
-          <% else %>
-          <img src="<%= product.image %>" alt="image" />
-          <% end %>
+  <div id="masonry-container">
+    <% @vendor.products.each do |product| %>
+    <div class="box">
+      <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
+      <img src="<%= product.etsy_image_url %>" alt="image" />
+      <% else %>
+      <img src="<%= product.image %>" alt="image" />
+      <% end %>
 
-          <h3><%= link_to product.name.truncate(30), product_path(product) %></h3>
-          <h6>Made by: <%= link_to product.vendor.name, vendor_path(product.vendor) %></h6>
-          <p><%= product.description.truncate(50) %></p>
-          <div class="input-group col6 pull-right">
-              <i class="glyphicon glyphicon-pencil"> <%= link_to "Edit", edit_admin_vendor_product_path(@vendor, product) %></i>
-              <br>
-              <i class="glyphicon glyphicon-trash"> <%= link_to 'Delete', admin_vendor_product_path(@vendor, product), method: :delete, data: { confirm: 'Are you sure? This will delete the product permanently.' } %></i>
-          </div>
-        </div>
-        <% end %>
+      <h3><%= link_to product.name.truncate(30), product_path(product) %></h3>
+      <h6>Made by: <%= link_to product.vendor.name, vendor_path(product.vendor) %></h6>
+      <p><%= product.description.truncate(50) %></p>
+      <div class="input-group col6 pull-right">
+        <i class="glyphicon glyphicon-pencil"> <%= link_to "Edit", edit_admin_vendor_product_path(@vendor, product) %></i>
+        <br>
+        <i class="glyphicon glyphicon-trash"> <%= link_to 'Delete', admin_vendor_product_path(@vendor, product), method: :delete, data: { confirm: 'Are you sure? This will delete the product permanently.' } %></i>
       </div>
+    </div>
+    <% end %>
+  </div>
 
 
 </div>

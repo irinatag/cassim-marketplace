@@ -8,7 +8,12 @@ class AuthenticationController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
        session[:user_id] = user.id
-       redirect_to products_path, notice: "You have successfully signed in."
+       if session[:vendor_registration] == true
+         session.delete(:vendor_registration)
+         redirect_to new_admin_vendor_path, notice: "You have successfully signed in. Please register as vendor"
+       else
+         redirect_to products_path, notice: "You have successfully signed in."
+       end
     else
        @sign_in_error = "Username / password combination is invalid"
        render :new
