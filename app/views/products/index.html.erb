@@ -21,19 +21,3 @@
     </div>
   </div>
 </div>
-<script>
-
-$( document ).ready(function() {
-    mason();
-});
-
-function mason() {
-    var $container = $('#masonry-container').masonry({
-            itemSelector: '.box'
-        });
-
-    $container.imagesLoaded(function(){
-        $container.masonry();
-    });
-   }
-</script>

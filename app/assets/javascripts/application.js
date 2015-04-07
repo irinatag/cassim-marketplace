@@ -17,13 +17,9 @@
 //= require masonry/jquery.masonry
 //= require_tree .
 
+
 $(document).ready(function() {
-
-var $container = $('#masonry-container').masonry();
-
-  $container.imagesLoaded( function() {
-    $container.masonry({
-      itemSelector: '.box'
-    });
+  $('#masonry-container').masonry({
+    itemSelector: '.box'
   });
 });

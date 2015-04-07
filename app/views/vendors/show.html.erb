@@ -1,58 +1,63 @@
 <div class="container">
   <div class="container voffset image-panel col-sm-2 show_panel responsive">
     <div class="avatar_panel">
-        <%= image_tag @vendor.avatar.url, class: "img-responsive img-thumbnail" %>
-        <div class="avatar_panel">
-          <h5><span style="color: lightblue"><%= @vendor.owner_name %></span></h5>
-          <i class='glyphicon glyphicon-map-marker'></i>
-          <% if @vendor.city != '' && @vendor.city != nil %>
-          <%= @vendor.city %> ,
-          <% end %>
-          <% if @vendor.state != '' && @vendor.state != nil %>
-          <%= @vendor.state %>
-          <% end %>
-          <% if @vendor.country != "" && @vendor.country != nil %>
-          <dt>Country:</dt> <dd><%= @vendor.country %></dd>
-          <% end %>
-        </div>
-      </div>
-    </div>
 
-    <div class="container voffset col-sm-1"></div>
-
-    <div class="container voffset col-sm-8">
-      <div class="image-panel show_panel">
-        <%= image_tag @vendor.image.url, class: "img-responsive center" %>
-        <h2><span style="color: lightblue"><%= @vendor.name %></span></h2>
-        <div class="panel panel-default">
-          <div class="panel-footer"><h4><small><%= @vendor.tagline %></small></h4></div>
-          <div class="panel-body">
-            <% if @vendor.description != "" && @vendor.description != nil %>
-            <p><%= @vendor.description %></p>
-            <% end %>
-          </div>
-        </div>
-
-      </div>
-
-      <h3>Products Offered:</h3>
-      <div id="masonry-container">
-        <% @vendor.products.each do |product| %>
-        <div class="box small">
-          <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
-          <%= image_tag product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
-          <% else %>
-          <%= image_tag product.image, class: "img-rounded img-responsive", alt: "image" %>
-          <% end %>
-          <h6><%= link_to product.name.truncate(25), product_path(product) %></h6>
-          <h7 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency product.price %></span></h7>
-          <p><%= product.description.truncate(30) %></p>
-        </div>
+      <% if @vendor.etsy_avatar_image_url != "" && @vendor.etsy_avatar_image_url != nil %>
+      <%= image_tag @vendor.etsy_avatar_image_url, class: "img-rounded img-responsive", alt: "image" %>
+      <% else %>
+      <%= image_tag @vendor.avatar.url, class: "img-responsive img-thumbnail", alt: "image" %>
+      <% end %>
+      <div class="avatar_panel">
+        <h5><span style="color: lightblue"><%= @vendor.owner_name %></span></h5>
+        <i class='glyphicon glyphicon-map-marker'></i>
+        <% if @vendor.city != '' && @vendor.city != nil %>
+        <%= @vendor.city %>
+        <% end %>
+        <% if @vendor.state != '' && @vendor.state != nil %>
+        <%= @vendor.state %>
+        <% end %>
+        <% if @vendor.country != "" && @vendor.country != nil %>
+        <dt>Country:</dt> <dd><%= @vendor.country %></dd>
         <% end %>
       </div>
     </div>
   </div>
 
-</div>
-</div>
+  <div class="container voffset col-sm-1"></div>
+
+  <div class="container voffset col-sm-8">
+    <div class="show_panel">
+      <% if @vendor.etsy_profile_image_url != "" && @vendor.etsy_profile_image_url != nil %>
+        <%= image_tag @vendor.etsy_profile_image_url, class: "img-responsive center", alt: "image" %>
+      <% else %>
+        <%= image_tag @vendor.image.url, class: "img-responsive center", alt: "image" %>
+      <% end %>
+      <h2><span style="color: lightblue"><%= @vendor.name %></span></h2>
+      <div class="panel panel-default">
+        <div class="panel-footer"><h4><small><%= @vendor.tagline %></small></h4></div>
+        <div class="panel-body">
+          <% if @vendor.description != "" && @vendor.description != nil %>
+          <p><%= @vendor.description %></p>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Products Offered:</h3>
+    <div id="masonry-container">
+      <% @vendor.products.each do |product| %>
+      <div class="box small">
+        <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
+        <%= image_tag product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
+        <% else %>
+        <%= image_tag product.image, class: "img-rounded img-responsive", alt: "image" %>
+        <% end %>
+        <h6><%= link_to product.name.truncate(25), product_path(product) %></h6>
+        <h7 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency product.price %></span></h7>
+        <p><%= product.description.truncate(30) %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
