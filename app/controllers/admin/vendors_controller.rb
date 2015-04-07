@@ -1,5 +1,6 @@
 class Admin::VendorsController < ApplicationController
 
+  before_filter :mark_vendor_registration, only: :new
   before_filter :authenticate
 
   def index
@@ -14,17 +15,10 @@ class Admin::VendorsController < ApplicationController
     @vendor = Vendor.new(vendor_params)
 
     if @vendor.save
-      # current_user.update_attributes(is_vendor?: true)
-      # session[:vendor_id] = @vendor.id
-      puts "*" * 50
-      current_user.vendor_id = 8888
-      puts current_user.inspect
-      puts "*" * 50
+      current_user.update_attributes(is_vendor?: true, vendor_id: @vendor.id)
+      session[:vendor_id] = @vendor.id
       current_user.save
-      puts current_user.inspect
-      puts "*" * 50
-      # puts @vendor.id
-      # puts current_user.inspect
+      @vendor.save
       redirect_to admin_vendor_path(@vendor.id), notice: "Congratulations! You've been successfully added as a seller. Manage your profile settings from the Admin Panel below."
     else
       render :new
@@ -59,10 +53,17 @@ class Admin::VendorsController < ApplicationController
   end
 
   def dashboard
-    @vendor = Vendor.find(params[:id])
+    if params[:id] != current_user.vendor_id
+      flash[:notice] = "Sorry, you don't have permission to access this page."
+    end
+    @vendor = Vendor.find(current_user.vendor_id)
   end
 
   private
+
+  def mark_vendor_registration
+    session[:vendor_registration] = true
+  end
 
   def vendor_params
     params.require(:vendor).permit(:name, :description, :email_biz, :email_finance, :address, :city, :state, :zipcode, :country, :phone, :image, :avatar, :owner_name, :tagline)
