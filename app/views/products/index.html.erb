@@ -1,14 +1,14 @@
 <div class="container">
-<h1 class="page-header">Browse all custom products</h1>
+  <h1 class="page-header">Browse all custom products</h1>
 
-    <div id="masonry-container">
-      <div class="container">
+  <div id="masonry-container">
+    <div class="container">
       <% @products.each do |product| %>
       <div class="box">
         <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
-          <img src="<%= product.etsy_image_url %>" alt="image" />
-          <% else %>
-          <img src="<%= product.image %>" alt="image" />
+        <img src="<%= product.etsy_image_url %>" alt="image" />
+        <% else %>
+        <img src="<%= product.image %>" alt="image" />
         <% end %>
         <h3><%= link_to product.name.truncate(30), product_path(product) %></h3>
         <h6>Made by: <%= link_to product.vendor.name, vendor_path(product.vendor) %></h6>
@@ -17,5 +17,15 @@
       </div>
       <% end %>
     </div>
-    </div>
+  </div>
 </div>
+<script>
+var $container = $('#masonry-container').masonry();
+
+$(document).ready(function() {
+  $container.imagesLoaded( function() {
+    $container.masonry({
+      itemSelector: '.box'
+    });
+  });
+  </script>

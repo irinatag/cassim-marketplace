@@ -1,8 +1,8 @@
 <div class="container">
-    <div class="container voffset image-panel col-sm-2 show_panel">
-      <div>
+  <div class="container voffset image-panel col-sm-2 show_panel responsive">
+    <div class="avatar_panel">
         <%= image_tag @vendor.avatar.url, class: "img-responsive img-thumbnail" %>
-        <div>
+        <div class="avatar_panel">
           <h5><span style="color: lightblue"><%= @vendor.owner_name %></span></h5>
           <i class='glyphicon glyphicon-map-marker'></i>
           <% if @vendor.city != '' && @vendor.city != nil %>
@@ -20,7 +20,7 @@
 
     <div class="container voffset col-sm-1"></div>
 
-    <div class="container voffset col-sm-9">
+    <div class="container voffset col-sm-8">
       <div class="image-panel show_panel">
         <%= image_tag @vendor.image.url, class: "img-responsive center" %>
         <h2><span style="color: lightblue"><%= @vendor.name %></span></h2>
