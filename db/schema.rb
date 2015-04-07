@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406195619) do
+ActiveRecord::Schema.define(version: 20150407162309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150406195619) do
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
 
   create_table "products", force: true do |t|
-    t.string   "name"
+    t.text     "name"
     t.text     "description"
     t.integer  "quantity"
     t.decimal  "price"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20150406195619) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "vendor_id"
-    t.string   "properties"
+    t.text     "properties"
     t.string   "etsy_image_url"
     t.boolean  "active"
   end
