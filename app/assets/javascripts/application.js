@@ -15,11 +15,26 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require masonry/jquery.masonry
+//= require masonry/jquery.imagesloaded.min
+//= require masonry/jquery.infinitescroll.min
 //= require_tree .
 
 
-$(document).ready(function() {
-  $('#masonry-container').masonry({
-    itemSelector: '.box'
+// $(document).ready(function() {
+//   $('#masonry-container').masonry({
+//     itemSelector: '.box'
+//   });
+// });
+
+$(function(){
+
+  var $container = $('#masonry-container');
+
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector : '.box',
+    });
   });
+
+
 });

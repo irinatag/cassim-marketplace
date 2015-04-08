@@ -13,6 +13,7 @@
  *= require_self
  *= require jquery-ui
  *= require 'masonry/basic'
+ *= require 'masonry/infinitescroll'
  *= require_tree .
  */
 
