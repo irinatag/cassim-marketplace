@@ -16,6 +16,7 @@
         <h6>Made by: <%= link_to product.vendor.name, vendor_path(product.vendor) %></h6>
         <p><%= product.description.truncate(90) %></p>
         <div><%= render "product_row", product: product, order_item: @order_item %></div>
+
       </div>
       <% end %>
     </div>

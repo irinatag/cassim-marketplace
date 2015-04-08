@@ -7,19 +7,17 @@
     <div class="container">
 
       <% @vendors.each do |vendor| %>
-      <% if vendor.etsy_profile_image_url != "" && vendor.etsy_profile_image_url != nil %>
       <div class="box small">
-        <% if vendor.etsy_profile_image_url != "" && vendor.etsy_profile_image_url != nil %>
-        <%= image_tag vendor.etsy_avatar_image_url, class: "img-rounded img-responsive", alt: "image" %>
+        <% if vendor.etsy_avatar_image_url != "" && vendor.etsy_avatar_image_url != nil %>
+          <%= image_tag vendor.etsy_avatar_image_url, class: "img-rounded img-responsive", alt: "image" %>
         <% else %>
-        <%= image_tag vendor.image.url, class: "img-rounded img-responsive", alt: "image" %>
+          <%= image_tag vendor.avatar.url, class: "img-rounded img-responsive", alt: "image" %>
         <% end %>
-        <h5>Seller: <%= link_to vendor.name, vendor_path(vendor) %></h5>
+        <h5>Seller Store: <%= link_to vendor.name, vendor_path(vendor) %></h5>
         <% if vendor.description != "" && vendor.description != nil %>
         <p><%= vendor.description.truncate(90) %></p>
         <% end %>
       </div>
-      <% end %>
       <% end %>
     </div>
   </div>
