@@ -12,17 +12,6 @@ def get_trending_urls(url)
   trending_item_urls
 end
 
-# def get_vendor_store_links(links)
-#   shop_urls = []
-#   links.each do |link|
-#     response = RestClient.get(link).body
-#     noko = Nokogiri::HTML(response)
-#     shop_url = noko.css('.shop-name a[itemprop="url"]').attr('href').value rescue nil
-#     shop_urls << shop_url
-#   end
-#   shop_urls
-# end
-
 def create_trending_products(links)
   links.each do |link|
     response = RestClient.get(link).body
