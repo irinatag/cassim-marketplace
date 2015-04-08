@@ -54,6 +54,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'selenium-webdriver'
 gem "rails-erd"
 gem "byebug"
+gem 'tire'
 
 group :production do
   gem 'rails_12factor'

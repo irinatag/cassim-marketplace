@@ -33,4 +33,14 @@ class Product < ActiveRecord::Base
         Product.create! row.to_hash
     end
   end
+
+  def self.search(params)
+    tire.search(load: true) do
+      query { string params[:search] } if params[:search].present?
+    end
+   end
+
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
 end

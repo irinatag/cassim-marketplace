@@ -10,4 +10,14 @@ class Vendor < ActiveRecord::Base
 
   has_many :products, dependent: :destroy
   belongs_to :user
+
+  def self.search(params)
+    tire.search(load: true) do
+      query { string params[:search] } if params[:search].present?
+    end
+   end
+
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
 end
