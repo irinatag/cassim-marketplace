@@ -39,6 +39,9 @@ namespace :etsy do
 
   desc "rake -T"
   task scrape: :environment do
+    Product.delete_all
+    Vendor.delete_all
+    
     etsy_trending_links = get_trending_urls("https://www.etsy.com/trending")
     create_trending_products(etsy_trending_links)
   end
