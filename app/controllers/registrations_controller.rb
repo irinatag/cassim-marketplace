@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      if @user.is_vendor?
+      if @user.is_vendor? == true
         redirect_to new_admin_vendor_path, notice: "You have successfully signed up. Please register as a vendor."
       else
         redirect_to products_path, notice: "You have successfully signed up."
