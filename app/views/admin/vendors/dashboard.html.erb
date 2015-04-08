@@ -4,6 +4,7 @@
 
     <%= link_to 'Upload More Products', new_admin_vendor_product_path(@vendor), class: "btn btn-success" %></li>
     <%= link_to 'Manage Profile', edit_admin_vendor_path(@vendor), class: "btn btn-success" %></li>
+    <%= link_to 'Go to my Seller Page', vendor_path(@vendor), class: "btn btn-success" %></li>
     <%= link_to 'Delete My Profile', admin_vendor_path(@vendor), method: :delete, data: { confirm: 'Are you sure? This will delete your profile permanently.' }, class: "btn btn-danger" %>
   </div>
 

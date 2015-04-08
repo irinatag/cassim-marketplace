@@ -1,16 +1,17 @@
 <div class="container">
   <div class="container voffset image-panel col-sm-2 show_panel responsive">
     <div class="avatar_panel">
-
       <% if @vendor.etsy_avatar_image_url != "" && @vendor.etsy_avatar_image_url != nil %>
-      <%= image_tag @vendor.etsy_avatar_image_url, class: "img-rounded img-responsive", alt: "image" %>
+        <%= image_tag @vendor.etsy_avatar_image_url, class: "img-rounded img-responsive", alt: "image" %>
+      <% elsif @vendor.etsy_avatar_image_url == nil %>
+        <%= image_tag @vendor.etsy_avatar_image_url, class: "noshow", alt: "image" %>
       <% else %>
-      <%= image_tag @vendor.avatar.url, class: "img-responsive img-thumbnail", alt: "image" %>
+        <%= image_tag @vendor.avatar.url, class: "img-responsive img-thumbnail", alt: "image" %>
       <% end %>
       <div class="avatar_panel">
         <h5><span style="color: lightblue"><%= @vendor.owner_name %></span></h5>
-        <i class='glyphicon glyphicon-map-marker'></i>
         <% if @vendor.city != '' && @vendor.city != nil %>
+        <i class='glyphicon glyphicon-map-marker'></i>
         <%= @vendor.city %>
         <% end %>
         <% if @vendor.state != '' && @vendor.state != nil %>
@@ -27,8 +28,10 @@
 
   <div class="container voffset col-sm-8">
     <div class="show_panel">
-      <% if @vendor.etsy_profile_image_url != "" && @vendor.etsy_profile_image_url != nil %>
+      <% if @vendor.etsy_profile_image_url != "/images/original/missing.png" && @vendor.etsy_profile_image_url != nil %>
         <%= image_tag @vendor.etsy_profile_image_url, class: "img-responsive center", alt: "image" %>
+      <% elsif %>
+      <%= image_tag @vendor.etsy_profile_image_url, class: "noshow", alt: "image" %>
       <% else %>
         <%= image_tag @vendor.image.url, class: "img-responsive center", alt: "image" %>
       <% end %>
@@ -41,7 +44,6 @@
           <% end %>
         </div>
       </div>
-
     </div>
 
     <h3>Products Offered:</h3>

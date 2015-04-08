@@ -1,45 +1,42 @@
-<div class="container">
-  <div class="col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-sm-6 col-md-6 col-lg-6">
-    <%= simple_form_for [:admin, @vendor, @product],
-    html: { class: 'form-horizontal'},
-    wrapper: :horizontal_form,
-    wrapper_mappings: {
-      file: :horizontal_file_input
-      } do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :name, placeholder: 'Enter Product Name' %>
-      <%= f.input :description, placeholder: 'Product Description' %>
-      <%= f.input :image, as: :file %>
-      <%= f.input :quantity %>
-      <%= f.input :price %>
-      <%= f.input :moq %>
-      <%= f.input :when_ready %>
-      <%= f.input :brand %>
-      <%= f.input :sku %>
-      <%= f.input :msrp %>
-      <%= f.input :category1 %>
-      <%= f.input :category2 %>
-      <%= f.input :upc %>
-      <%= f.input :properties %>
-      <%= f.input :restrictions %>
-      <%= f.input :warehouse_zip %>
-      <%= f.input :warranty %>
-      <%= f.input :link1 %>
-      <%= f.input :link1_title %>
-      <%= f.input :link2 %>
-      <%= f.input :link2_title %>
+<div class="col-sm-offset-3">
+  <div class="col-sm-8">
+    <div class="well">
+      <%= simple_form_for [:admin, @vendor, @product],
+      html: { class: 'form-group form-horizontal'},
+      wrapper: :horizontal_form,
+      wrapper_mappings: {
+        file: :horizontal_file_input
+        } do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name, placeholder: 'Enter Product Name' %>
+        <%= f.input :description, placeholder: 'Product Description' %>
+        <%= f.input :image, as: :file %>
+        <%= f.input :quantity %>
+        <%= f.input :price %>
+        <%= f.input :moq %>
+        <%= f.input :when_ready %>
+        <%= f.input :brand %>
+        <%= f.input :sku %>
+        <%= f.input :msrp %>
+        <%= f.input :category1 %>
+        <%= f.input :category2 %>
+        <%= f.input :upc %>
+        <%= f.input :properties %>
+        <%= f.input :restrictions %>
+        <%= f.input :warehouse_zip %>
+        <%= f.input :warranty %>
+        <%= f.input :link1 %>
+        <%= f.input :link1_title %>
+        <%= f.input :link2 %>
+        <%= f.input :link2_title %>
 
-      <div class="col-xs-8 col-centered">
-        <% if params[:action] == 'new' %>
-        <%= f.button :submit, "Submit Product",  class: "btn btn-primary" %>
-        <% else %>
-        <%= f.button :submit, "Update product" %>
+          <% if params[:action] == 'new' %>
+          <%= f.button :submit, "Submit Product",  class: "btn btn-primary" %>
+          <% else %>
+          <%= f.button :submit, "Update Product",  class: "btn btn-primary" %>
+          <% end %>
+          
         <% end %>
-      </div>
-
-      <% end %>
-
-    </div>
-  </br>
-</br>
+  </div>
+</div>
 </div>

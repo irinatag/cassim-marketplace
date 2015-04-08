@@ -3,12 +3,16 @@
 
       <div class="container voffset image-panel col-sm-2 show_panel responsive">
         <div class="avatar_panel">
-          <%= image_tag @vendor.avatar.url, class: "img-responsive img-thumbnail" %>
+          <% if @vendor.avatar.url != "/images/original/missing.png" && @vendor.avatar.url != nil %>
+            <%= image_tag @vendor.avatar.url, class: "img-responsive img-thumbnail" %>
+          <% elsif @vendor.avatar.url == "/images/original/missing.png" %>
+            <%= image_tag @vendor.avatar.url, class: "display: none; important!" %>
+          <% end %>
           <div>
             <h5><span style="color: lightblue"><%= @vendor.owner_name %></span></h5>
             <i class='glyphicon glyphicon-map-marker'></i>
             <% if @vendor.city != '' && @vendor.city != nil %>
-            <%= @vendor.city %> ,
+            <%= @vendor.city %>
             <% end %>
             <% if @vendor.state != '' && @vendor.state != nil %>
             <%= @vendor.state %>
@@ -24,7 +28,11 @@
 
       <div class="container voffset col-sm-8">
         <div class="image-panel show_panel">
-          <%= image_tag @vendor.image.url, class: "img-responsive center-block" %>
+          <% if @vendor.image.url != "/images/original/missing.png" && @vendor.image.url != nil %>
+            <%= image_tag @vendor.image.url, class: "img-responsive center-block" %>
+          <% else %>
+            <%= image_tag @vendor.image.url, class: "noshow" %>
+          <% end %>
           <h2><span style="color: lightblue"><%= @vendor.name %></span></h2>
           <div class="panel panel-default">
             <div class="panel-footer"><h4><small><%= @vendor.tagline %></small></h4></div>
@@ -43,6 +51,8 @@
           <div class="box small">
             <% if product.etsy_image_url != "" && product.etsy_image_url != nil %>
             <%= image_tag product.etsy_image_url, class: "img-rounded img-responsive", alt: "image" %>
+            <% elsif product.etsy_image_url == nil %>
+            <%= image_tag product.etsy_image_url, class: "noshow", alt: "image" %>
             <% else %>
             <%= image_tag product.image, class: "img-rounded img-responsive", alt: "image" %>
             <% end %>

@@ -2,32 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .crop {
-//     width: 950px;
-//     height: 150px;
-//     overflow: hidden;
-// }
-//
-// @media screen and (min-width: 60em) {
-//   /* responsive columns; see "Element sizing" on http://masonry.desandro.com/options.html */
-//   .crop {
-//     width: 33.3%;
-//   }
-// }
-//
-// @media screen and (min-width: 35em) {
-//   .crop {
-//     width: 50%;
-//   }
-// }
-//
-// @media screen and (min-width: 24em) {
-//   .crop {
-//     width: 100%;
-//   }
-// }
-//
-// img.resize {
-//     width:540px; /* you can use % */
-//     height: auto;
-// }
+.crop {
+  width: 950px;
+  height: 150px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 60em) {
+ /* responsive columns; see "Element sizing" on http://masonry.desandro.com/options.html */
+ .crop {
+    width: 33.3%;
+   }
+ }
+
+ @media screen and (min-width: 35em) {
+   .crop {
+    width: 50%;
+  }
+}
+
+ @media screen and (min-width: 24em) {
+   .crop {
+     width: 100%;
+   }
+ }
+
+ img.resize {
+    width:540px; /* you can use % */
+     height: auto;
+}
+
+.noshow {
+  display: none;
+}
