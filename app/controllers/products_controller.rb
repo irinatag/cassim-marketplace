@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all.order("created_at DESC").search(params)
     @vendor = Vendor.all
-    @order_item = @order_item = current_order.order_items.new
+    @order_item = current_order.order_items.new
   end
 
   def show
