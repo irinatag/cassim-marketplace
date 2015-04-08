@@ -1,9 +1,9 @@
 <div class="container">
   <div class="container voffset image-panel col-sm-2 show_panel responsive">
     <div class="avatar_panel">
-      <% if @vendor.etsy_avatar_image_url != "" && @vendor.etsy_avatar_image_url != nil %>
+      <% if @vendor.etsy_avatar_image_url != "/avatars/original/missing.png" && @vendor.etsy_avatar_image_url != nil %>
         <%= image_tag @vendor.etsy_avatar_image_url, class: "img-rounded img-responsive", alt: "image" %>
-      <% elsif @vendor.etsy_avatar_image_url == nil %>
+      <% elsif @vendor.etsy_avatar_image_url == "/avatars/original/missing.png" %>
         <%= image_tag @vendor.etsy_avatar_image_url, class: "noshow", alt: "image" %>
       <% else %>
         <%= image_tag @vendor.avatar.url, class: "img-responsive img-thumbnail", alt: "image" %>
