@@ -47,7 +47,7 @@
 
       <ul class="nav navbar-nav navbar-right">
 
-        
+        <li class="cart-text"><%= render 'layouts/cart_text' %></li>
         <% if current_user %>
         <li><%= link_to current_user.email, user_path(current_user.id), class:"navbar-link" %></li>
         <li><%= link_to "Sign Out", signout_path %></li>
