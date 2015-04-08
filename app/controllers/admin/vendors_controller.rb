@@ -19,7 +19,7 @@ class Admin::VendorsController < ApplicationController
       session[:vendor_id] = @vendor.id
       current_user.save
       @vendor.save
-      redirect_to admin_vendor_path(@vendor.id), notice: "Congratulations! You've been successfully added as a seller. Manage your profile settings from the Admin Panel below."
+      redirect_to admin_vendor_path(@vendor.id), notice: "Congratulations! You've been successfully added as a Seller. Manage your profile settings from the Admin Panel below."
     else
       render :new
     end
@@ -38,7 +38,7 @@ class Admin::VendorsController < ApplicationController
     @vendor.update(vendor_params)
 
     if @vendor.save
-      redirect_to admin_vendor_path(@vendor.id), notice: "Vendor was updated!"
+      redirect_to admin_vendor_path(@vendor.id), notice: "Seller Profile was updated!"
     else
       render :edit
     end
@@ -49,13 +49,10 @@ class Admin::VendorsController < ApplicationController
     @vendor.destroy
     current_user.update_attributes(is_vendor?: false)
     current_user.save
-    redirect_to products_path, notice: "Vendor Profile was successfully deleted."
+    redirect_to products_path, notice: "Seller Profile was successfully deleted."
   end
 
   def dashboard
-    if params[:id] != current_user.vendor_id
-      flash[:notice] = "Sorry, you don't have permission to access this page."
-    end
     @vendor = Vendor.find(current_user.vendor_id)
   end
 

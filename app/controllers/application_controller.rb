@@ -17,13 +17,7 @@ class ApplicationController < ActionController::Base
   #   end
   # end
 
-  def current_order
-    if !session[:order_id].nil?
-      Order.find(session[:order_id])
-    else
-      Order.new
-    end
-  end
+
 
   def authenticate
     unless current_user

@@ -10,7 +10,7 @@ class AuthenticationController < ApplicationController
        session[:user_id] = user.id
        if session[:vendor_registration] == true
          session.delete(:vendor_registration)
-         redirect_to new_admin_vendor_path, notice: "You have successfully signed in. Please register as vendor"
+         redirect_to new_admin_vendor_path, notice: "You have successfully signed in. Please register as a Seller."
        else
          redirect_to products_path, notice: "You have successfully signed in."
        end
