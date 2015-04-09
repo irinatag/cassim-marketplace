@@ -19,13 +19,6 @@
 //= require masonry/jquery.infinitescroll.min
 //= require_tree .
 
-
-// $(document).ready(function() {
-//   $('#masonry-container').masonry({
-//     itemSelector: '.box'
-//   });
-// });
-
 $(function(){
 
   var $container = $('#masonry-container');
