@@ -32,3 +32,90 @@ body {
 .voffset2 {
   margin-top: 5em;
 }
+
+@media (min-width: 768px ) {
+  .row {
+      position: relative;
+  }
+
+  .bottom-align-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+  }
+}
+
+.grid-gallery ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-gallery figure {
+  margin: 0;
+}
+
+.grid-wrap {
+  max-width: 69em;
+  margin: 0 auto;
+  padding: 0 1em 1.875em;
+}
+
+.grid {
+  margin: 0 auto;
+}
+
+.grid li {
+  width: 25%;
+  float: left;
+  cursor: pointer;
+}
+
+.grid figure {
+  padding: 15px;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.grid li:hover figure {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 60em) {
+  .grid li {
+    width: 33.3%;
+  }
+
+@media screen and (max-width: 35em) {
+  .grid li {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 24em) {
+  .grid li {
+    width: 100%;
+  }
+}
+
+.btn-autosize {
+  width: 25%;
+}
+
+@media screen and (max-width: 60em) {
+  .btn-autosize {
+    width: 33.3%;
+  }
+
+@media screen and (max-width: 35em) {
+  .btn-autosize {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 24em) {
+  .btn-autosize {
+    width: 100%;
+  }
+}
