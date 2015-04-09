@@ -7,8 +7,9 @@
     <div class="container">
 
       <% @vendors.each do |vendor| %>
+      <% if vendor.etsy_avatar_image_url != "/avatars/original/missing.png" && vendor.etsy_avatar_image_url != nil %>
       <div class="box small">
-        <% if vendor.etsy_avatar_image_url != "" && vendor.etsy_avatar_image_url != nil %>
+        <% if vendor.etsy_avatar_image_url != "/avatars/original/missing.png" && vendor.etsy_avatar_image_url != nil %>
           <%= image_tag vendor.etsy_avatar_image_url, class: "img-rounded img-responsive", alt: "image" %>
         <% else %>
           <%= image_tag vendor.avatar.url, class: "img-rounded img-responsive", alt: "image" %>
@@ -18,6 +19,7 @@
         <p><%= vendor.description.truncate(90) %></p>
         <% end %>
       </div>
+      <% end %>
       <% end %>
     </div>
   </div>
