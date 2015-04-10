@@ -23,7 +23,11 @@ default: &default
 
 development:
   <<: *default
-  database: cassim_development
+  database: d8dt1kujrilu24
+  username: tejmduvnmnfcfs
+  password: kk-3mKpDtLI6B6FpTBHuRXKoRY
+  host: ec2-23-21-187-45.compute-1.amazonaws.com
+  port: 5432
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
