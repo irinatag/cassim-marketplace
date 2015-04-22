@@ -1,28 +1,22 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Find deployed here: http://www.cassim.co/
+Cassim app is an Etsy-like marketplace where buyers and sellers can discover products sold worldwide.
 
-Things you may want to cover:
+Technical stack: Ruby on Rails 4, PostgreSQL, Elasticsearch (full-text search), Ruby bindings for Selenium Webscraper (Etsy content scraping), Masonry UI.
 
-* Ruby version
+Currently under development:
+- Stripe API integration
+- AJAX content fetching for faster site load speed
+- Content tagging
 
-* System dependencies
+To clone & run:
 
-* Configuration
+* Ruby 2.2.0
 
-* Database creation
+* Rails 4.1.8
 
-* Database initialization
+* Database creation: rake db:drop db:create db:migrate rake etsy:scrape
 
-* How to run the test suite
+* Rspec unit & feature tests in /spec folder
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
