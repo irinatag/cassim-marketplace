@@ -18,5 +18,26 @@ To clone & run:
 
 * Database creation: rake db:drop db:create db:migrate rake etsy:scrape
 
-* Rspec unit & feature tests in /spec folder
+* Rspec unit & feature tests in /spec directory
 
+Screenshots:
+
+(a) Features by audience
+
+![Features by audience](public/images/features.png)
+
+(b) Browse by products
+
+![Browse by products](public/images/Cassim_buyers.png)
+
+(c) Browse by sellers
+
+![Browse by sellers](public/images/Cassim_sellers.png)
+
+(d) Seller store
+
+![Seller store](public/images/Cassim_seller_store.png)
+
+(e) Seller admin dashboard
+
+![Seller dashboard](public/images/Cassim_seller_dashboard.png)
