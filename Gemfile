@@ -21,6 +21,7 @@ gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # gem 'jquery-turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -54,6 +55,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'selenium-webdriver'
 gem "rails-erd"
 gem "byebug"
+gem "rest-client"
 #gem 'tire'
 
 group :production do
@@ -64,6 +66,7 @@ end
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem "xray-rails"
 end
 
 group :development, :test do
